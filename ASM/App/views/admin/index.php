@@ -56,13 +56,16 @@ session_start();
                     case 'tableUser':
                         require_once '../admin/page/users/tableUser.php';
                         break;
-                    // Dịch vụ
+                    // Hóa đơn
                     case 'tableOrder':
                         require_once '../admin/page/tableOrder.php';
                         break;
-                    // Phản hồi
-                    case 'tableFeedback':
-                        require_once 'App/views/page/tableFeedback.php';
+                    // phòng
+                    case 'tableCateRoom':
+                        require_once '../admin/page/rooms/tableCateRoom.php';
+                        break;
+                    case 'tableRoom':
+                        require_once '../admin/page/rooms/tableRoom.php';
                         break;
                 }
             }

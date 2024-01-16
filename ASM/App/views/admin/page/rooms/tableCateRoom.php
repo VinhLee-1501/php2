@@ -22,52 +22,55 @@
                     <tr>
                         <th>Mã phòng</th>
                         <th>Loại phòng</th>
-                        <th>Giá</th>
-                        <th>Trạng thái</th>
                         <th>Tiện nghi</th>
+                        <th>Trạng thái</th>
                         <th>Thao tác</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Graiden</td>
-                        <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                        <td>076 4820 8838</td>
+                        <td>01</td>
+                        <td>Phòng Cao cấp</td>
+                        <td>Wifi, Giường lớn...</td>
                         <td>
-                            <span class="badge bg-danger">Inactive</span>
+                            <span class="badge bg-danger">Active</span>
                         </td>
-                        <td>Offenburg</td>
-                        <td>Offenburg</td>
+                        <td>
+                            <button class="btn btn-info">Sửa</button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Dale</td>
-                        <td>fringilla.euismod.enim@quam.ca</td>
-                        <td>0500 527693</td>
+                        <td>01</td>
+                        <td>Phòng Cao cấp</td>
+                        <td>Wifi, Giường lớn...</td>
                         <td>
-                            <span class="badge bg-success">Active</span>
+                            <span class="badge bg-danger">Active</span>
                         </td>
-                        <td>Offenburg</td>
-                        <td>Offenburg</td>
+                        <td>
+                            <button class="btn btn-info">Sửa</button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Nathaniel</td>
-                        <td>mi.Duis@diam.edu</td>
-                        <td>(012165) 76278</td>
+                        <td>01</td>
+                        <td>Phòng Cao cấp</td>
+                        <td>Wifi, Giường lớn...</td>
                         <td>
-                            <span class="badge bg-success">Active</span>
+                            <span class="badge bg-danger">Active</span>
                         </td>
-                        <td>Offenburg</td>
-                        <td>Offenburg</td>
+                        <td>
+                            <button class="btn btn-info">Sửa</button>
+                        </td>
                     </tr>
                     <tr>
-                        <td>Darius</td>
-                        <td>velit@nec.com</td>
-                        <td>0309 690 7871</td>
+                        <td>01</td>
+                        <td>Phòng Cao cấp</td>
+                        <td>Wifi, Giường lớn...</td>
                         <td>
-                            <span class="badge bg-success">Active</span>
+                            <span class="badge bg-danger">Active</span>
                         </td>
-                        <td>Offenburg</td>
-                        <td>Offenburg</td>
+                        <td>
+                            <button class="btn btn-info">Sửa</button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

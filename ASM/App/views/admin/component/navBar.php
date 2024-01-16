@@ -43,6 +43,18 @@
                     </a>
                 </li>
                 <li class="sidebar-item  ">
+                    <a href="?page=tableRoom" class='sidebar-link'>
+                        <i data-feather="file-text" width="20"></i>
+                        <span>Phòng</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  ">
+                    <a href="?page=tableCateRoom" class='sidebar-link'>
+                        <i data-feather="file-text" width="20"></i>
+                        <span>Loại phòng</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  ">
                     <a href="?page=tableOrder" class='sidebar-link'>
                         <i data-feather="file-plus" width="20"></i>
                         <span>Hóa đơn</span>

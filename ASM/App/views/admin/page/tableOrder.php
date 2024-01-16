@@ -21,51 +21,29 @@
                     <thead>
                     <tr>
                         <th>Mã</th>
-                        <th>Loại dịch vụ</th>
+                        <th>Ngày lập</th>
                         <th>Phòng</th>
-                        <th>Khách hàng</th>
-                        <th>Thời gian</th>
+                        <th>Tên khách hàng</th>
+                        <th>Thời gian sử dụng</th>
+                        <th>Tổng tiền</th>
                         <th>Trạng thái</th>
-                        <th>Đánh giá</th>
                         <th>Thao tác</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Graiden</td>
-                        <td>Graiden</td>
-                        <td>Phòng</td>
-                        <td>Lễ tân</td>
-                        <td>Lễ tân</td>
+                        <td>01</td>
+                        <td>15/01/2024</td>
+                        <td>Phòng cao cấp (King bed)</td>
+                        <td>Nguyễn A</td>
+                        <td>2 ngày</td>
+                        <td>6.000.000 VND</td>
                         <td>
                             <span class="badge bg-danger">Inactive</span>
                         </td>
-                        <td>Offenburg</td>
-                        <td>Offenburg</td>
-                    </tr>
-                    <tr>
-                        <td>Graiden</td>
-                        <td>Graiden</td>
-                        <td>Phòng</td>
-                        <td>Lễ tân</td>
-                        <td>Lễ tân</td>
                         <td>
-                            <span class="badge bg-danger">Inactive</span>
+                            <button class="btn btn-info">Xác nhận</button>
                         </td>
-                        <td>Offenburg</td>
-                        <td>Offenburg</td>
-                    </tr>
-                    <tr>
-                        <td>Graiden</td>
-                        <td>Graiden</td>
-                        <td>Phòng</td>
-                        <td>Lễ tân</td>
-                        <td>Lễ tân</td>
-                        <td>
-                            <span class="badge bg-danger">Inactive</span>
-                        </td>
-                        <td>Offenburg</td>
-                        <td>Offenburg</td>
                     </tr>
                     </tbody>
                 </table>

@@ -32,16 +32,19 @@
                     </thead>
                         <tbody>
                         <tr>
-                            <td>teen</td>
-                            <td>sdt</td>
-                            <td>email</td>
-                            <td>address</td>
-                            <td>quoc</td>
-                            <td>cccd</td>
+                            <td>Nguyễn A</td>
+                            <td>098765432</td>
+                            <td>nguyena@gmail.com</td>
+                            <td>Cần Thơ</td>
+                            <td>Việt Nam</td>
+                            <td>089765432122</td>
                             <td>
-                                <span class="badge bg-danger">Inactive</span>
+                                <span class="badge bg-green">Active</span>
                             </td>
-                            <td>Offenburg</td>
+                            <td class="row">
+                                <button class="btn btn-info">Sửa</button>
+                                <button class="btn btn-warning">Ẩn</button>
+                            </td>
                         </tr>
                         </tbody>
                 </table>

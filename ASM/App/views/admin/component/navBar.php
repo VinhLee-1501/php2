@@ -8,42 +8,48 @@
                 <li class='sidebar-title'>Main Menu</li>
 
                 <li class="sidebar-item  ">
-                    <a href="../page/home.php" class='sidebar-link'>
+                    <a href="?page=home" class='sidebar-link'>
                         <i data-feather="home" width="20"></i>
                         <span>Lượng check-in</span>
                     </a>
                 </li>
-                <li class="sidebar-item  has-sub">
-                    <a href="#" class='sidebar-link'>
+                <!--                <li class="sidebar-item  has-sub">-->
+                <!--                    <a href="#" class='sidebar-link'>-->
+                <!--                        <i data-feather="file-text" width="20"></i>-->
+                <!--                        <span>Đặt phòng</span>-->
+                <!--                    </a>-->
+                <!---->
+                <!--                    <ul class="submenu ">-->
+                <!---->
+                <!--                        <li>-->
+                <!--                            <a href="">Đặt phòng</a>-->
+                <!--                        </li>-->
+                <!---->
+                <!--                        <li>-->
+                <!--                            <a href="">Check-in</a>-->
+                <!--                        </li>-->
+                <!---->
+                <!--                        <li>-->
+                <!--                            <a href="">Check-out</a>-->
+                <!--                        </li>-->
+                <!---->
+                <!--                    </ul>-->
+                <!---->
+                <!--                </li>-->
+                <li class="sidebar-item  ">
+                    <a href="?page=tableBookRoom" class='sidebar-link'>
                         <i data-feather="file-text" width="20"></i>
                         <span>Đặt phòng</span>
                     </a>
-
-                    <ul class="submenu ">
-
-                        <li>
-                            <a href="../../../../App/views/admin/page/bookRoom/tableBookRoom.php">Đặt phòng</a>
-                        </li>
-
-                        <li>
-                            <a href="">Check-in</a>
-                        </li>
-
-                        <li>
-                            <a href="">Check-out</a>
-                        </li>
-
-                    </ul>
-
                 </li>
-<!--                <li class="sidebar-item  ">-->
-<!--                    <a href="../" class='sidebar-link'>-->
-<!--                        <i data-feather="file-plus" width="20"></i>-->
-<!--                        <span>Yêu cầu dịch vụ</span>-->
-<!--                    </a>-->
-<!--                </li>-->
                 <li class="sidebar-item  ">
-                    <a href="../page/users/tableUser.php" class='sidebar-link'>
+                    <a href="?page=tableOrder" class='sidebar-link'>
+                        <i data-feather="file-plus" width="20"></i>
+                        <span>Hóa đơn</span>
+                    </a>
+                </li>
+                <li class="sidebar-item  ">
+                    <a href="?page=tableUser" class='sidebar-link'>
                         <i data-feather="file-plus" width="20"></i>
                         <span>Khách hàng</span>
                     </a>

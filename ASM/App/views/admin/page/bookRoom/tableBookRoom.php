@@ -33,11 +33,10 @@
                         <thead>
                         <tr>
                             <th>Mã</th>
-                            <th>Loại phòng</th>
+                            <th>Phòng</th>
                             <th>Ngày đặt</th>
                             <th>Ngày đến</th>
                             <th>Ngày đi</th>
-                            <th>Mã phòng</th>
                             <th>Số lượng phòng</th>
                             <th>Khách hàng</th>
                             <th>Trạng thái</th>
@@ -48,59 +47,19 @@
                         <tr>
                             <td>1</td>
                             <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
-                            <td>Offenburg</td>
-                            <td>1</td>
+                            <td>12/01/2024</td>
+                            <td>13/01/2024</td>
+                            <td>15/01/2024</td>
                             <td>2</td>
-                            <td>Offenburg</td>
+                            <td>Nguyễn A</td>
                             <td>
                                 <span class="badge bg-danger">Inactive</span>
                             </td>
-                            <td>Offenburg</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
-                            <td>Offenburg</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>Offenburg</td>
                             <td>
-                                <span class="badge bg-danger">Inactive</span>
+                                <button class="btn btn-info">Nhận</button>
                             </td>
-                            <td>Offenburg</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
-                            <td>Offenburg</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>Offenburg</td>
-                            <td>
-                                <span class="badge bg-danger">Inactive</span>
-                            </td>
-                            <td>Offenburg</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
-                            <td>Offenburg</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>Offenburg</td>
-                            <td>
-                                <span class="badge bg-danger">Inactive</span>
-                            </td>
-                            <td>Offenburg</td>
-                        </tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -114,11 +73,10 @@
                         <thead>
                         <tr>
                             <th>Mã</th>
-                            <th>Loại phòng</th>
+                            <th>Phòng</th>
                             <th>Ngày đặt</th>
                             <th>Ngày đến</th>
                             <th>Ngày đi</th>
-                            <th>Mã phòng</th>
                             <th>Số lượng phòng</th>
                             <th>Khách hàng</th>
                             <th>Trạng thái</th>
@@ -129,45 +87,19 @@
                         <tr>
                             <td>1</td>
                             <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
-                            <td>Offenburg</td>
-                            <td>1</td>
+                            <td>12/01/2024</td>
+                            <td>13/01/2024</td>
+                            <td>15/01/2024</td>
                             <td>2</td>
-                            <td>Offenburg</td>
+                            <td>Nguyễn A</td>
                             <td>
                                 <span class="badge bg-danger">Inactive</span>
                             </td>
-                            <td>Offenburg</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
-                            <td>Offenburg</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>Offenburg</td>
                             <td>
-                                <span class="badge bg-danger">Inactive</span>
+                                <button class="btn btn-info">Trả phòng</button>
                             </td>
-                            <td>Offenburg</td>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Phòng Cao cấp có Giường cỡ lớn</td>
-                            <td>076 4820 8838</td>
-                            <td>Offenburg</td>
-                            <td>Offenburg</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>Offenburg</td>
-                            <td>
-                                <span class="badge bg-danger">Inactive</span>
-                            </td>
-                            <td>Offenburg</td>
-                        </tr>
+
                         </tbody>
                     </table>
                 </div>

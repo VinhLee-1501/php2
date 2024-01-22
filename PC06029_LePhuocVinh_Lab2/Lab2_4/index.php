@@ -4,8 +4,7 @@ spl_autoload_register(function ($class){
    require_once $class.'.php';
 });
 
-use App\Home as home;
-$objHome = new home();
+$objHome = new HomeLab4();
 ?>
 
 <!doctype html>

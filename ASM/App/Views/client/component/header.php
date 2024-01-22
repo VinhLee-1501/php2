@@ -24,7 +24,7 @@
                         </div>
                         <a href="#" class="bk-btn">Đặt phòng</a>
                         <div class="language-option">
-                            <img src="../../../views/client/layout/img/flag.jpg" alt="">
+                            <img src="../../../Views/client/layout/img/flag.jpg" alt="">
                             <span>EN <i class="fa fa-angle-down"></i></span>
                             <div class="flag-dropdown">
                                 <ul>
@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="logo">
-                        <a href="../../../../App/views/client/index.php">
+                        <a href="../../../../App/Views/client/index.php">
                             <img src="../../../../public/assets/client/img/logo.png" alt="">
                         </a>
                     </div>

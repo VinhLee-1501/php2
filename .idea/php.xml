@@ -5,9 +5,12 @@
       <path value="$PROJECT_DIR$/ASM/vendor/composer" />
       <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/vendor/composer" />
       <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab3/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/vendor/composer" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="7.0">
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
 </project>

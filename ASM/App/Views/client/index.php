@@ -45,28 +45,28 @@ if (isset($_SERVER['admin'])) {
 
     switch ($action) {
         case 'home':
-            require_once '../../../App/views/client/page/home.php';
+            require_once '../../../App/Views/client/page/home.php';
             break;
         case 'login':
             require_once 'App/views/admin/page/login.php';
             break;
         case 'Rooms':
-            require_once '../../../App/views/client/page/rooms.php';
+            require_once '../../../App/Views/client/page/rooms.php';
             break;
         case 'detail_room':
-            require_once '../../../App/views/client/page/room-details.php';
+            require_once '../../../App/Views/client/page/room-details.php';
             break;
         case 'aboutUs':
-            require_once '../../../App/views/client/page/about-us.php';
+            require_once '../../../App/Views/client/page/about-us.php';
             break;
         case 'blogs':
-            require_once '../../../App/views/client/page/blog.php';
+            require_once '../../../App/Views/client/page/blog.php';
             break;
         case 'detailBolg':
-            require_once '../../../App/views/client/page/blog-details.php';
+            require_once '../../../App/Views/client/page/blog-details.php';
             break;
         case 'contact':
-            require_once '../../../App/views/client/page/contact.php';
+            require_once '../../../App/Views/client/page/contact.php';
             break;
     }
 }

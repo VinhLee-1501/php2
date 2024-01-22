@@ -4,6 +4,6 @@ class Home
 {
     public function __construct()
     {
-        echo 'Hello Home';
+        echo 'Hello HomeLab4';
     }
 }

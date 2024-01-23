@@ -6,7 +6,7 @@ require_once 'vendor/autoload.php';
 //$router->register('/', function (){
 //    echo 'home';
 //});
-//$router->resolve($_SERVER['REQUEST_URI']);
+// echo $router->resolve($_SERVER['REQUEST_URI']);
 
 use App\Core\Router as Router;
 

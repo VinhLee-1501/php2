@@ -25,3 +25,12 @@ $route->register('/', [App\HomeLab4::class, 'index'])
     ->register('/Invoices', [App\Invoices::class, 'index'])
     ->register('/Invoices/create', [App\Invoices::class, 'create']);
 echo $route->resolve($_SERVER['REQUEST_URI']);
+
+
+$str = "Visit Microsoft!";
+$pattern = "/microsoft/i";
+echo preg_replace($pattern, "W3Schools", $str); // Outputs "Visit W3Schools!"
+
+
+
+

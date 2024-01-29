@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1cb9e466-013e-4e03-9077-ee1accdfc362" name="Changes" comment="N07 - Lab4">
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/App/Core/Database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/App/Core/ForgotPassword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/App/Core/HomeLab5.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/App/Core/LoginLab5.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/App/Core/Route.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/App/Core/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/App/Core/ValidatorLab5.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab5/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/index.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/composer.json" />
+      <option value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/composer.json" />
+      <option value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/composer.json" />
+      <option value="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/ASM/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop/lab4" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/ASM/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab3/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2b1r1XIFYlUXVVGhemUfyTDm2CB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "develop/lab5",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/php-8.2.15/php.exe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Ampps\www\php2\ASM\App\views\client" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Ampps\www\php2\ASM\App\views\admin" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1cb9e466-013e-4e03-9077-ee1accdfc362" name="Changes" comment="" />
+      <created>1705393213620</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705393213620</updated>
+      <workItem from="1705393215587" duration="822000" />
+      <workItem from="1705394052474" duration="1959000" />
+      <workItem from="1705397668034" duration="6116000" />
+      <workItem from="1705414718536" duration="2575000" />
+      <workItem from="1705486757902" duration="85000" />
+      <workItem from="1705486851946" duration="94000" />
+      <workItem from="1705486959296" duration="182000" />
+      <workItem from="1705500963634" duration="87000" />
+      <workItem from="1705501069146" duration="65000" />
+      <workItem from="1705502341716" duration="23000" />
+      <workItem from="1705561601599" duration="948000" />
+      <workItem from="1705734429107" duration="7000" />
+      <workItem from="1705737411360" duration="182000" />
+      <workItem from="1705737845897" duration="103000" />
+      <workItem from="1705738489912" duration="2453000" />
+      <workItem from="1705754017579" duration="25000" />
+      <workItem from="1705845687432" duration="5304000" />
+      <workItem from="1705908432060" duration="976000" />
+      <workItem from="1705913490564" duration="71000" />
+      <workItem from="1705914600590" duration="56000" />
+      <workItem from="1705915758247" duration="17000" />
+      <workItem from="1705915850689" duration="9000" />
+      <workItem from="1705915898107" duration="160000" />
+      <workItem from="1705923382416" duration="6512000" />
+      <workItem from="1705929940300" duration="1855000" />
+      <workItem from="1705931819331" duration="769000" />
+      <workItem from="1705934646108" duration="1105000" />
+      <workItem from="1705935964392" duration="3210000" />
+      <workItem from="1705993205897" duration="6893000" />
+      <workItem from="1706004133587" duration="192000" />
+      <workItem from="1706013488607" duration="14000" />
+      <workItem from="1706016285324" duration="11000" />
+      <workItem from="1706165982621" duration="251000" />
+      <workItem from="1706166246122" duration="7292000" />
+      <workItem from="1706180369441" duration="18000" />
+      <workItem from="1706327040216" duration="1313000" />
+      <workItem from="1706333442236" duration="1846000" />
+      <workItem from="1706338703683" duration="6602000" />
+      <workItem from="1706346139153" duration="611000" />
+      <workItem from="1706359516450" duration="2397000" />
+      <workItem from="1706404519114" duration="1795000" />
+      <workItem from="1706411524425" duration="2588000" />
+      <workItem from="1706418089008" duration="5624000" />
+      <workItem from="1706423761913" duration="158000" />
+      <workItem from="1706423933061" duration="603000" />
+      <workItem from="1706424551350" duration="63000" />
+      <workItem from="1706424704489" duration="94000" />
+      <workItem from="1706424835785" duration="1212000" />
+      <workItem from="1706448326059" duration="2048000" />
+      <workItem from="1706451137147" duration="15349000" />
+      <workItem from="1706466735853" duration="1661000" />
+      <workItem from="1706488337500" duration="89000" />
+      <workItem from="1706488465054" duration="507000" />
+      <workItem from="1706490081616" duration="886000" />
+      <workItem from="1706501253229" duration="7817000" />
+      <workItem from="1706512423138" duration="1122000" />
+      <workItem from="1706517747590" duration="1326000" />
+      <workItem from="1706531478271" duration="6092000" />
+      <workItem from="1706537745819" duration="5340000" />
+    </task>
+    <task id="LOCAL-00001" summary="N05 - Interface, abstract">
+      <option name="closed" value="true" />
+      <created>1705845801869</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705845801869</updated>
+    </task>
+    <task id="LOCAL-00002" summary="N06 - Lab3">
+      <option name="closed" value="true" />
+      <created>1705915978776</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705915978776</updated>
+    </task>
+    <task id="LOCAL-00003" summary="N07 - Lab4">
+      <option name="closed" value="true" />
+      <created>1705936262808</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1705936262808</updated>
+    </task>
+    <task id="LOCAL-00004" summary="N07 - Lab4">
+      <option name="closed" value="true" />
+      <created>1706004230236</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706004230236</updated>
+    </task>
+    <task id="LOCAL-00005" summary="N07 - Lab4">
+      <option name="closed" value="true" />
+      <created>1706169247255</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706169247255</updated>
+    </task>
+    <task id="LOCAL-00006" summary="N07 - Lab4">
+      <option name="closed" value="true" />
+      <created>1706169280370</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706169280370</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop/lab4" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="N05 - Interface, abstract" />
+    <MESSAGE value="N06 - Lab3" />
+    <MESSAGE value="N07 - Lab4" />
+    <option name="LAST_COMMIT_MESSAGE" value="N07 - Lab4" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

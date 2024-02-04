@@ -17,6 +17,7 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
+                <a href="<?= ROOT_URL?>?url=HomeAdminController/createRoom/" class="btn btn-success">Thêm</a>
                 <table class='table table-striped' id="table1">
                     <thead>
                     <tr>
@@ -29,87 +30,31 @@
                         <th>Thao tác</th>
                     </tr>
                     </thead>
+                    <?php
+//                    global $data;
+                    foreach ($data as $row):
+                    ?>
                     <tbody>
                     <tr>
-                        <td>01</td>
-                        <td>Phòng Cao cấp</td>
-                        <td>Phòng cao cấp (King bed)</td>
-                        <td>3.000.000/1 Đêm</td>
-                        <td>Wifi, giường lớn, TV,...</td>
-                        <td>
-                            <span class="badge bg-danger">Đầy</span>
-                        </td>
-                        <td>
+                        <td><?=$row['roomId']?></td>
+                        <td><?=$row['roomTypeId']?></td>
+                        <td><?=$row['nameRoom']?></td>
+                        <td><?=$row['price']?></td>
+                        <td><?=$row['describe']?></td>
+                        <td class="<?php if ($row['status'] === 'Đầy'){
+                            echo 'text-danger';
+                        }else{
+                            echo 'text-success';
+                        }?>"><?=$row['status']?></td>
+                        <td class="row">
                             <button class="btn btn-info">Sửa</button>
+                            <button class="btn btn-warning">Ẩn</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>01</td>
-                        <td>Phòng Cao cấp</td>
-                        <td>Phòng cao cấp (King bed)</td>
-                        <td>3.000.000/1 Đêm</td>
-                        <td>Wifi, giường lớn, TV,...</td>
-                        <td>
-                            <span class="badge bg-danger">Đầy</span>
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>01</td>
-                        <td>Phòng Cao cấp</td>
-                        <td>Phòng cao cấp (King bed)</td>
-                        <td>3.000.000/1 Đêm</td>
-                        <td>Wifi, giường lớn, TV,...</td>
-                        <td>
-                            <span class="badge bg-green">Trống</span>
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>01</td>
-                        <td>Phòng Cao cấp</td>
-                        <td>Phòng cao cấp (King bed)</td>
-                        <td>3.000.000/1 Đêm</td>
-                        <td>Wifi, giường lớn, TV,...</td>
-                        <td>
-                            <span class="badge bg-green">Trống</span>
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>01</td>
-                        <td>Phòng Cao cấp</td>
-                        <td>Phòng cao cấp (King bed)</td>
-                        <td>3.000.000/1 Đêm</td>
-                        <td>Wifi, giường lớn, TV,...</td>
-                        <td>
-                            <span class="badge bg-danger">Đầy</span>
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>01</td>
-                        <td>Phòng Cao cấp</td>
-                        <td>Phòng cao cấp (King bed)</td>
-                        <td>3.000.000/1 Đêm</td>
-                        <td>Wifi, giường lớn, TV,...</td>
-                        <td>
-                            <span class="badge bg-green">Trống</span>
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Sửa</button>
-                        </td>
-                    </tr>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
+                <a href="<?= ROOT_URL?>?url=HomeAdminController/createRoom" class="btn btn-success">Thêm</a>
             </div>
         </div>
     </section>

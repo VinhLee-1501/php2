@@ -2,13 +2,13 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Bảng yêu cầu dịch vụ</h3>
+                <h3>Bảng quản lý phòng</h3>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class='breadcrumb-header'>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="home.php">Thống kế</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Bảng yêu cầu dịch vụ</li>
+                        <li class="breadcrumb-item active" aria-current="page">Bảng quản lý phòng</li>
                     </ol>
                 </nav>
             </div>
@@ -20,32 +20,38 @@
                 <table class='table table-striped' id="table1">
                     <thead>
                     <tr>
-                        <th>Mã</th>
-                        <th>Ngày lập</th>
-                        <th>Phòng</th>
-                        <th>Tên khách hàng</th>
-                        <th>Thời gian sử dụng</th>
-                        <th>Tổng tiền</th>
+                        <th>Mã phòng</th>
+                        <th>Loại phòng</th>
+                        <th>Tiện nghi</th>
                         <th>Trạng thái</th>
                         <th>Thao tác</th>
                     </tr>
                     </thead>
+                    <?php
+
+                    foreach ($data as $row):
+                    ?>
                     <tbody>
                     <tr>
-                        <td>01</td>
-                        <td>15/01/2024</td>
-                        <td>Phòng cao cấp (King bed)</td>
-                        <td>Nguyễn A</td>
-                        <td>2 ngày</td>
-                        <td>6.000.000 VND</td>
+                        <td><?=$row['roomTypeId']?></td>
+                        <td><?=$row['nameType']?></td>
+                        <td><?=$row['utilities']?></td>
+                        <td class="<?php
+                        if ($row['status'] === 'Active'){
+                            echo 'text-success';
+                        }else{
+                            echo 'text-danger';
+                        }
+                        ?>"><?=$row['status']?></td>
+
                         <td>
-                            <span class="badge bg-danger">Inactive</span>
-                        </td>
-                        <td>
-                            <button class="btn btn-info">Xác nhận</button>
+                            <span class="btn btn-danger">Ẩn</span>
+                            <button class="btn btn-info">Sửa</button>
                         </td>
                     </tr>
+
                     </tbody>
+                    <?php endforeach;?>
                 </table>
             </div>
         </div>

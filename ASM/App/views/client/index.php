@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../../../public/assets/client/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="../../../public/assets/client/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../../public/assets/client/css/style.css" type="text/css">
+    <link rel="stylesheet" href="path/to/your/css.css">
 </head>
 
 <body>
@@ -33,49 +34,10 @@ include '../client/component/header.php';
 <!-- Header End -->
 
 <!-- Hero Section Begin -->
-<?php
-
-if (isset($_SERVER['admin'])) {
-    require_once 'App/views/admin/page/login.php';
-} else {
-    $action = 'home';
-    if (isset($_GET['page'])) {
-        $action = $_GET['page'];
-    }
-
-    switch ($action) {
-        case 'home':
-            require_once '../../../App/views/client/page/home.php';
-            break;
-        case 'login':
-            require_once 'App/views/admin/page/login.php';
-            break;
-        case 'Rooms':
-            require_once '../../../App/views/client/page/rooms.php';
-            break;
-        case 'detail_room':
-            require_once '../../../App/views/client/page/room-details.php';
-            break;
-        case 'aboutUs':
-            require_once '../../../App/views/client/page/about-us.php';
-            break;
-        case 'blogs':
-            require_once '../../../App/views/client/page/blog.php';
-            break;
-        case 'detailBolg':
-            require_once '../../../App/views/client/page/blog-details.php';
-            break;
-        case 'contact':
-            require_once '../../../App/views/client/page/contact.php';
-            break;
-    }
-}
-
-?>
 <!-- Blog Section End -->
 
 <!-- Footer Section Begin -->
-<?
+<?php
 require_once '../client/component/footer.php';
 ?>
 <!-- Footer Section End -->
@@ -100,6 +62,7 @@ require_once '../client/component/footer.php';
 <script src="../../../public/assets/client/js/jquery.slicknav.js"></script>
 <script src="../../../public/assets/client/js/owl.carousel.min.js"></script>
 <script src="../../../public/assets/client/js/main.js"></script>
+<script src="path/to/your/script.js"></script>
 </body>
 
 </html>

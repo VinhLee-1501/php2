@@ -6,7 +6,7 @@ spl_autoload_register(function ($class_name){
 });
 
 use App\Controller\BaseControl as con;
-use App\Core\Route as Rou;
+use App\Core\Router as Rou;
 use App\Model\BaseModel as Md;
 
 $con = new con();

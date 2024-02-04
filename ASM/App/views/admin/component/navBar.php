@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Voler Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../../../public/assets/admin/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../../public/assets/admin/vendors/chartjs/Chart.min.css">
+
+    <link rel="stylesheet" href="../../../public/assets/admin/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="../../../public/assets/admin/css/app.css">
+    <link rel="shortcut icon" href="../../../public/assets/admin/images/favicon.svg" type="image/x-icon">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+<div id="app">
 <div id="sidebar" class='active'>
     <div class="sidebar-wrapper active">
         <div class="sidebar-header">
@@ -8,126 +29,42 @@
                 <li class='sidebar-title'>Main Menu</li>
 
                 <li class="sidebar-item  ">
-                    <a href="?page=home" class='sidebar-link'>
+                    <a href="<?=ROOT_URL?>?url=HomeAdminController/home" class='sidebar-link'>
                         <i data-feather="home" width="20"></i>
                         <span>Lượng check-in</span>
                     </a>
                 </li>
-                <!--                <li class="sidebar-item  has-sub">-->
-                <!--                    <a href="#" class='sidebar-link'>-->
-                <!--                        <i data-feather="file-text" width="20"></i>-->
-                <!--                        <span>Đặt phòng</span>-->
-                <!--                    </a>-->
-                <!---->
-                <!--                    <ul class="submenu ">-->
-                <!---->
-                <!--                        <li>-->
-                <!--                            <a href="">Đặt phòng</a>-->
-                <!--                        </li>-->
-                <!---->
-                <!--                        <li>-->
-                <!--                            <a href="">Check-in</a>-->
-                <!--                        </li>-->
-                <!---->
-                <!--                        <li>-->
-                <!--                            <a href="">Check-out</a>-->
-                <!--                        </li>-->
-                <!---->
-                <!--                    </ul>-->
-                <!---->
-                <!--                </li>-->
                 <li class="sidebar-item  ">
-                    <a href="?page=tableBookRoom" class='sidebar-link'>
+                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableBookRooms" class='sidebar-link'>
                         <i data-feather="file-text" width="20"></i>
                         <span>Đặt phòng</span>
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a href="?page=tableRoom" class='sidebar-link'>
+                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableRoom" class='sidebar-link'>
                         <i data-feather="file-text" width="20"></i>
                         <span>Phòng</span>
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a href="?page=tableCateRoom" class='sidebar-link'>
+                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableRoomType" class='sidebar-link'>
                         <i data-feather="file-text" width="20"></i>
                         <span>Loại phòng</span>
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a href="?page=tableOrder" class='sidebar-link'>
+                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableOrder" class='sidebar-link'>
                         <i data-feather="file-plus" width="20"></i>
                         <span>Hóa đơn</span>
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a href="?page=tableUser" class='sidebar-link'>
+                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableUser" class='sidebar-link'>
                         <i data-feather="file-plus" width="20"></i>
                         <span>Khách hàng</span>
                     </a>
                 </li>
 
-                <li class='sidebar-title'>Forms &amp; Tables</li>
-
-
-
-                <li class='sidebar-title'>Layout</li>
-
-                <li class="sidebar-item  ">
-                    <a href="form-layout.html" class='sidebar-link'>
-                        <i data-feather="layout" width="20"></i>
-                        <span>Form Layout</span>
-                    </a>
-
-                </li>
-
-
-                <li class="sidebar-item  ">
-                    <a href="?page=tableRooms" class='sidebar-link'>
-                        <i data-feather="file-plus" width="20"></i>
-                        <span>Datatable</span>
-                    </a>
-                </li>
-
-
-<!--                <li class='sidebar-title'>Extra UI</li>-->
-<!---->
-<!---->
-<!--                <li class="sidebar-item  has-sub">-->
-<!--                    <a href="#" class='sidebar-link'>-->
-<!--                        <i data-feather="user" width="20"></i>-->
-<!--                        <span>Widgets</span>-->
-<!--                    </a>-->
-<!---->
-<!--                    <ul class="submenu ">-->
-<!---->
-<!--                        <li>-->
-<!--                            <a href="ui-chatbox.html">Chatbox</a>-->
-<!--                        </li>-->
-<!---->
-<!--                    </ul>-->
-<!---->
-<!--                </li>-->
-
-
-<!--                <li class="sidebar-item  has-sub">-->
-<!--                    <a href="#" class='sidebar-link'>-->
-<!--                        <i data-feather="trending-up" width="20"></i>-->
-<!--                        <span>Charts</span>-->
-<!--                    </a>-->
-<!---->
-<!--                    <ul class="submenu ">-->
-<!---->
-<!--                        <li>-->
-<!--                            <a href="ui-chart-chartjs.html">ChartJS</a>-->
-<!--                        </li>-->
-<!---->
-<!--                        <li>-->
-<!--                            <a href="ui-chart-apexchart.html">Apexchart</a>-->
-<!--                        </li>-->
-<!---->
-<!--                    </ul>-->
-<!--                </li>-->
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

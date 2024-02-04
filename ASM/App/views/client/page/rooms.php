@@ -10,7 +10,7 @@
                 <div class="breadcrumb-text">
                     <h2>Phòng</h2>
                     <div class="bt-option">
-                        <a href="?page=home">Trang chủ</a>
+                        <a href="ROOT_URL?url=HomeClientController/homePage">Trang chủ</a>
                         <span>Phòng</span>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="?page=detail_room" class="primary-btn">More Details</a>
+                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="?page=detail_room" class="primary-btn">More Details</a>
+                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="?page=detail_room" class="primary-btn">More Details</a>
+                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="?page=detail_room" class="primary-btn">More Details</a>
+                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
                     </div>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="?page=detail_room" class="primary-btn">More Details</a>
+                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
                     </div>
                 </div>
             </div>
@@ -176,7 +176,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="?page=detail_room" class="primary-btn">More Details</a>
+                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
                     </div>
                 </div>
             </div>

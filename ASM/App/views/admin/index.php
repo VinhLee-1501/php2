@@ -33,44 +33,7 @@ session_start();
             <?php
             include '../admin/component/header.php';
 
-            if (isset($_SERVER['admin'])) {
-                require_once '../admin/page/login.php';
-            } else {
-                $action = 'home';
-                if (isset($_GET['page'])) {
-                    $action = $_GET['page'];
-                }
-
-                switch ($action) {
-                    case 'home':
-                        require_once '../admin/page/home.php';
-                        break;
-                    case 'login':
-                        require_once '../admin/page/login.php';
-                        break;
-                    // Đặt phòng
-                    case 'tableBookRoom':
-                        require_once '../admin/page/bookRoom/tableBookRoom.php';
-                        break;
-                    // Khách hàng
-                    case 'tableUser':
-                        require_once '../admin/page/users/tableUser.php';
-                        break;
-                    // Hóa đơn
-                    case 'tableOrder':
-                        require_once '../admin/page/tableOrder.php';
-                        break;
-                    // phòng
-                    case 'tableCateRoom':
-                        require_once '../admin/page/rooms/tableCateRoom.php';
-                        break;
-                    case 'tableRoom':
-                        require_once '../admin/page/rooms/tableRoom.php';
-                        break;
-                }
-            }
             include '../admin/component/footer.php';
-
             ?>
         </div>
     </div>

@@ -1,7 +1,11 @@
 <?php
 require_once 'vendor/autoload.php';
+define ("ROOT_URL", "http://localhost:8000/");
 
-use App\models\User;
+//use App\Controllers\client\HomeClientController;
+use App\Core\Route;
+new Route();
 
-$user = new User('user');
-$user->getOne(1, 1);
+//use App\Models\User;
+//$user = new User();
+//var_dump($user->getInfo(1));

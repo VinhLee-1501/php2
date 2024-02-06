@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form" action="<?=ROOT_URL?>?url=RoomAdminController/createInfoRoom/" method="post">
+                            <form class="form" action="<?=ROOT_URL?>?url=RoomAdminController/createInfoRoom" method="post">
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
@@ -32,7 +32,7 @@
                                             <label for="city-column">Loại</label>
                                             <select class="form-select" name="roomTypeId" aria-label=".form-select-sm example">
                                                 <option value=" " selected disabled>Vui lòng chọn dịch vụ</option>
-                                                <option value="1">1</option>
+                                                <option value="1">Phòng đơn</option>
                                                 <option value="2">Phòng đôi</option>
                                                 <option value="3">Phòng Cao cấp</option>
                                                 <option value="4">Phòng Deluxe</option>
@@ -45,15 +45,15 @@
                                         <div class="form-group">
                                             <label for="country-floating">Trạng thái</label>
                                             <select class="form-select" name="describe" aria-label=".form-select-sm example">
-                                                <option value="Active">Active</option>
-                                                <option value="Inactive">Inactive</option>
+                                                <option value="Active">Trống</option>
+                                                <option value="Inactive">Đầy</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="company-column">Tiện ích</label>
-                                            <textarea class="form-control" name="descibe"></textarea>
+                                            <textarea class="form-control" name="describtion"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">

@@ -15,4 +15,9 @@ class User extends BaseModel
     {
         return $this->create($array);
     }
+
+    function updatePass($email, $data)
+    {
+        return $this->updateFromEmail($email, $data);
+    }
 }

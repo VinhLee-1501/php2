@@ -5,9 +5,19 @@
       <path value="$PROJECT_DIR$/ASM/vendor/composer" />
       <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/vendor/composer" />
       <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab3/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/vendor/composer" />
+      <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/language" />
+      <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/src" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/ASM/vendor/autoload.php" />
+    </phpunit_settings>
   </component>
 </project>

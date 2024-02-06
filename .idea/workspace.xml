@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b7771c8e-b1cc-430d-a9d0-56ba1d64198a" name="Changes" comment="N07 - Lab4">
+      <change afterPath="$PROJECT_DIR$/.idea/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ASM/App/Helpers/PHPMailer/Mailer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ASM/App/Models/admin/LoginAdmin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ASM/App/views/client/page/forgotPass.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ASM/App/views/client/page/resetPass.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ASM/App/views/client/page/verification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/admin/HomeAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/HomeAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/admin/RoomAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/RoomAdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/client/HomeClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/client/HomeClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/client/UserClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/client/UserClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Core/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Core/Route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Interfaces/CrudInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Interfaces/CrudInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Models/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/BaseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Models/admin/RoomAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/admin/RoomAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Models/client/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/client/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/component/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/Create.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/Create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/tableRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/tableRoom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/component/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/index.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerConfigs">
+    <option name="configs">
+      <option value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/composer.json" />
+      <option value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/composer.json" />
+    </option>
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/ASM/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/ASM/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab3/vendor/composer" />
+      <path value="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/vendor/composer" />
+      <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/language" />
+      <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/src" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2bvat0IFpTBW1YoCRsZeFuAIgQp" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop/dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Ampps\www\php2\ASM\App\Core\PHPMailer" />
+      <recent name="D:\Ampps\www\php2\ASM\App\Core" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7771c8e-b1cc-430d-a9d0-56ba1d64198a" name="Changes" comment="N07 - Lab4" />
+      <created>1707098222493</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707098222493</updated>
+      <workItem from="1707098227784" duration="34000" />
+      <workItem from="1707132996889" duration="83000" />
+      <workItem from="1707133094872" duration="13172000" />
+      <workItem from="1707148887077" duration="5153000" />
+      <workItem from="1707205169547" duration="2430000" />
+      <workItem from="1707212483474" duration="5976000" />
+      <workItem from="1707219067391" duration="7933000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="N07 - Lab4" />
+    <option name="LAST_COMMIT_MESSAGE" value="N07 - Lab4" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -4,6 +4,7 @@ namespace App\Controllers\admin;
 
 use App\Core\BaseRender;
 use App\Models\admin\RoomAdmin;
+use App\Models\client\Room;
 
 class RoomAdminController extends BaseAdminController
 {
@@ -20,16 +21,6 @@ class RoomAdminController extends BaseAdminController
         $this->_renderBase = new BaseRender();
     }
 
-    function tableRoom()
-    {
-        $tableRoom = new Room('rooms');
-        $data = $tableRoom->getAllRoom();
-
-        $this->_renderBase->renderAdminHeader();
-        $this->_renderBase->renderAdminNavBar();
-        $this->load->render('admin/page/rooms/tableRoom', $data);
-        $this->_renderBase->renderAdminFooter();
-    }
 
     function createInfoRoom()
     {
@@ -37,7 +28,7 @@ class RoomAdminController extends BaseAdminController
         $data = [
             'nameRoom' => $_POST['nameRoom'],
             'price' => $_POST['price'],
-            'describe' => $_POST['describe'],
+            'describtion' => $_POST['describtion'],
             'roomTypeId' => $_POST['roomTypeId'],
             'status' => $_POST['status']
         ];

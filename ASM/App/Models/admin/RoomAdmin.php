@@ -6,9 +6,9 @@ use App\Models\BaseModel;
 
 class RoomAdmin extends BaseModel
 {
-    function getAllRoom()
+    function getAllRoom($table2, $condition1, $condition2)
     {
-        return $this->getAll();
+        return $this->getJoin($table2, $condition1, $condition2);
     }
 
     function getOneInfo($condition, $id)

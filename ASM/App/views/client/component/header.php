@@ -12,7 +12,8 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <!-- Css Styles -->
     <link rel="stylesheet" href="../../../../public/assets/client/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../../../../public/assets/client/css/font-awesome.min.css" type="text/css">
@@ -47,20 +48,40 @@
                             <a href="#"><i class="fa fa-instagram"></i></a>
                         </div>
                         <?php
-                        if (!isset($_SESSION['user'])){
-                            echo ' <a href="'.ROOT_URL.'?url=UserClientController/loginUser" class="bk-btn">Đăng nhập</a>';
-                        }else{
-                            $fullName = $_SESSION['user']['fullName'];
+                        if (!isset($_SESSION['users'])) {
+                            echo ' <a href="' . ROOT_URL . '?url=UserClientController/loginUser" class="bk-btn">Đăng nhập</a>';
+                        } else {
+                            if (isset($_SESSION['users']['fullName']) && !empty($_SESSION['users']['fullName'])) {
+                                $fullName = $_SESSION['users']['fullName'];
+                            } else {
+                                $email = $_SESSION['users']['email'];
+                                $nameFromEmail = preg_replace('/@.*?$/', '', $email);
+                                $fullName = $nameFromEmail;
+                            }
+                            $avatarPath = $_SESSION['users']['avatar'] ?? "../../../../public/assets/client/img/default-avatar.jpg";
+
+                            if (file_exists($avatarPath)) {
+                                $avatarUrl = $avatarPath;
+                            } else {
+                                $avatarUrl = "../../../../public/assets/client/img/default-avatar.jpg";
+                            }
+
+                            if (file_exists($avatarPath)){
+                                $avatarUrl = $avatarPath;
+                            }else{
+                                $avatarUrl = ROOT_URL. '../../../../public/uploads/user.png';
+                            }
                             echo '<div class="language-option">
-                                    <img src="../../../../public/assets/client/img/flag.jpg" alt="">
-                                    <span>'.$fullName.' <i class="fa fa-angle-down"></i></span>
+                                  <img src="' . $avatarUrl . '" alt="">
+                                    <span>' . $fullName . ' <i class="fa fa-angle-down"></i></span>
                                     <div class="flag-dropdown">
                                         <ul>
                                             <li><a href="#">Thông tin</a></li>
-                                            <li><a href="">Đăng xuất</a></li>
+                                            <li><a href="' . ROOT_URL . '?url=UserClientController/logoutUser">Đăng xuất</a></li>
                                         </ul>
                                     </div>
                                     </div>';
+
                         }
                         ?>
 
@@ -93,11 +114,12 @@
                     <div class="nav-menu">
                         <nav class="mainmenu">
                             <ul>
-                                <li class=""><a href="<?=ROOT_URL?>?url=HomeClientController/homePage">Trang chủ</a></li>
-                                <li><a href="<?=ROOT_URL?>?url=HomeClientController/roomsPage">Phòng</a></li>
-                                <li><a href="<?=ROOT_URL?>?url=HomeClientController/aboutUsPage">Giới thiệu</a></li>
-                                <li><a href="<?=ROOT_URL?>?url=HomeClientController/blogPage">Tin tức</a></li>
-                                <li><a href="<?=ROOT_URL?>?url=HomeClientController/contactPage">Liên hệ</a></li>
+                                <li class=""><a href="<?= ROOT_URL ?>?url=HomeClientController/homePage">Trang chủ</a>
+                                </li>
+                                <li><a href="<?= ROOT_URL ?>?url=HomeClientController/roomsPage">Phòng</a></li>
+                                <li><a href="<?= ROOT_URL ?>?url=HomeClientController/aboutUsPage">Giới thiệu</a></li>
+                                <li><a href="<?= ROOT_URL ?>?url=HomeClientController/blogPage">Tin tức</a></li>
+                                <li><a href="<?= ROOT_URL ?>?url=HomeClientController/contactPage">Liên hệ</a></li>
                             </ul>
                         </nav>
                         <div class="nav-right search-switch">

@@ -33,6 +33,17 @@ abstract class BaseModel implements CrudInterface
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getJoin($table2, $condition1, $condition2)
+    {
+        $this->_query = "SELECT * FROM $this->table AS t1 JOIN $table2 AS t2 ON t1.$condition1 = t2.$condition2";
+
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
     public function getOne($condition,  $id)
     {
         $this->_query = "SELECT * FROM $this->table  WHERE $condition = '$id'";
@@ -66,12 +77,52 @@ abstract class BaseModel implements CrudInterface
 
     public function update(int $id, array $data)
     {
+        $this->_query = "UPDATE $this->table SET ";
+        foreach ($data as $key => $value) {
+            $this->_query.= "$key = :$key, ";
+        }
+        $this->_query = rtrim($this->_query, ", ");
+
+        $this->_query.= " WHERE id = $id";
+
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(":$key", $value);
+        }
+
+        return $stmt->execute();
     }
 
-    public function delete(int $id): bool
+    public function delete($condition, int $id): bool
     {
-        return true;
+        $this->_query = "DELETE FROM $this->table WHERE $condition='$id'";
+
+        $stmt   = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+        $affected_rows = $stmt->rowCount();
+        return $affected_rows;
     }
+
+    public function updateFromEmail($email, array $data) {
+
+        $this->_query = "UPDATE $this->table SET ";
+        foreach ($data as $key => $value) {
+            $this->_query.= "$key = :$key, ";
+        }
+        $this->_query = rtrim($this->_query, ", ");
+
+        $this->_query.= " WHERE email = :email";
+
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(":$key", $value);
+        }
+        $stmt->bindValue(":email", $email);
+        return $stmt->execute();
+    }
+
 
 
     // public function orderBy(string $order = 'ASC')

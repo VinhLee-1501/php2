@@ -21,7 +21,7 @@
                 <table class='table table-striped' id="table1">
                     <thead>
                     <tr>
-                        <th>Mã</th>
+<!--                        <th>Mã</th>-->
                         <th>Loại</th>
                         <th>Tên</th>
                         <th>Giá</th>
@@ -36,8 +36,8 @@
                     ?>
                     <tbody>
                     <tr>
-                        <td><?=$row['roomId']?></td>
-                        <td><?=$row['roomTypeId']?></td>
+<!--                        <td>--><?php //=$row['roomId']?><!--</td>-->
+                        <td><?=$row['nameType']?></td>
                         <td><?=$row['nameRoom']?></td>
                         <td><?=$row['price']?></td>
                         <td><?=$row['describe']?></td>

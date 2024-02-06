@@ -22,7 +22,7 @@ class Route
     function request()
     {
         $this->url = isset($_GET['url']) ? $_GET['url'] : null;
-        var_dump($this->url);
+//        var_dump($this->url);
 
         // filter_var trong php là gì?
 
@@ -36,9 +36,9 @@ class Route
 
     function renderController()
     {
-        var_dump($this->url);
+//        var_dump($this->url);
         if (!isset($this->url[0])) {
-            $className = $this->clientPath . $this->nameController;
+            $className = $this->clientPath . $this->nameController[0];
             $className = preg_replace("~\/~", "\\", $className);
             $this->controller = new $className;
 //            var_dump($this->controller);
@@ -58,25 +58,21 @@ class Route
                         header('Location:' . ROOT_URL . 'HomeController/Error');
                     }
                 } else {
-                    echo 'Loi';
-//                header('Location:' . ROOT_URL . 'HomeController/Error');
-                }
-            } elseif ($this->adminPath) {
-                $file = __DIR__ . '/../Controllers/admin/' . $this->nameController . '.php';
-                if (file_exists($file)) {
-                    require_once $file;
-                    $this->path = $this->adminPath;
-                    $className = $this->path . $this->nameController;
-                    $className = preg_replace("~\/~", "\\", $className);
-                    if (class_exists($className)) {
-                        $this->controller = new $className;
-                    } else {
-                        header('Location:' . ROOT_URL . 'HomeController/Error');
+                    $file = __DIR__ . '/../Controllers/admin/' . $this->nameController . '.php';
+                    if (file_exists($file)) {
+                        require_once $file;
+                        $this->path = $this->adminPath;
+                        $className = $this->path . $this->nameController;
+                        $className = preg_replace("~\/~", "\\", $className);
+                        if (class_exists($className)) {
+                            $this->controller = new $className;
+                        } else {
+                            header('Location:' . ROOT_URL . 'HomeController/Error');
+                        }
                     }
-                } else {
-                    echo 'Loi';
-//                header('Location:' . ROOT_URL . 'HomeController/Error');
                 }
+            }else{
+                echo '<h4 class="text-center">Not Found</h4>';
             }
 
         }
@@ -88,7 +84,7 @@ class Route
         if (isset($this->url[2])) {
             $this->nameMethod = $this->url[1];
             // Kiểm tra xem có tồn tại method vừa gán
-            if (method_exists($this->controller, $this->nameMethod)) {
+            if ($this->controller && method_exists($this->controller, $this->nameMethod)) {
                 $this->controller->{$this->nameMethod}($this->url[2]);
             } else {
                 echo 'loi1';
@@ -98,13 +94,11 @@ class Route
             // kiểm tra hàm có tồn tại hàm không có tham số
             if (isset($this->url[1])) {
                 $this->nameMethod = $this->url[1];
-                // Kiểm tra xem có tồn tại method vừa gán
-                var_dump($this->nameMethod);
-                if (method_exists($this->controller, $this->nameMethod)) {
+                if ($this->controller && method_exists($this->controller, $this->nameMethod)) {
                     $this->controller->{$this->nameMethod}();
                 } else {
                     echo 'loi2';
-//                    header('Location:' . ROOT_URL . 'HomeClientController/Error');
+//                    echo get_class($this->controller) . "::" . $this->nameMethod;
                 }
             }
         }

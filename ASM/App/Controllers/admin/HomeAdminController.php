@@ -23,16 +23,22 @@ class HomeAdminController extends BaseAdminController
 
     function home()
     {
-        $this->_renderBase->renderAdminHeader();
-        $this->_renderBase->renderAdminNavBar();
-        $this->load->render('admin/page/home');
-        $this->_renderBase->renderAdminFooter();
+        if (!isset($_SESSION['admin'])) {
+            $this->load->render('admin/page/login');
+            exit();
+        }else {
+            $this->_renderBase->renderAdminHeader();
+            $this->_renderBase->renderAdminNavBar();
+            $this->load->render('admin/page/home');
+            $this->_renderBase->renderAdminFooter();
+        }
+
     }
 
-    function login()
+    function loginAdmin()
     {
-        $this->_renderBase->renderAdminHeader();
-        $this->_renderBase->renderAdminNavBar();
+//        $this->_renderBase->renderAdminHeader();
+//        $this->_renderBase->renderAdminNavBar();
         $this->load->render('admin/page/login');
         $this->_renderBase->renderAdminFooter();
     }
@@ -40,7 +46,7 @@ class HomeAdminController extends BaseAdminController
     function tableRoom()
     {
         $tableRoom = new RoomAdmin('rooms');
-        $data = $tableRoom->getAllRoom();
+        $data = $tableRoom->getAllRoom('roomTypes', 'roomTypeId', 'roomTypeId');
 
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();

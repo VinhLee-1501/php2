@@ -1,3 +1,4 @@
+
 <div id="main">
 <nav class="navbar navbar-header navbar-expand navbar-light">
     <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
@@ -50,7 +51,11 @@
                     <div class="avatar mr-1">
                         <img src="../../../../public/assets/admin/images/avatar/avatar-s-1.png" alt="" srcset="">
                     </div>
-                    <div class="d-none d-md-block d-lg-inline-block">Hi, Admin</div>
+                    <?php
+                    if (isset($_SESSION['admin'])){
+                        echo '<div class="d-none d-md-block d-lg-inline-block">Hi, '. $_SESSION['admin']['fullName']. '</div>';
+                    }
+                    ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>

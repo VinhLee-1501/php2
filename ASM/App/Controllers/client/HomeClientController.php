@@ -77,4 +77,5 @@ class HomeClientController extends BaseClientController
         $this->load->render('client/page/blog-details');
         $this->_renderBase->renderClientFooter();
     }
+
 }

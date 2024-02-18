@@ -20,4 +20,15 @@ class User extends BaseModel
     {
         return $this->updateFromEmail($email, $data);
     }
+
+    function updateInfoPsn(int $id, array $data, $id2)
+    {
+        return $this->update($id, $data, $id2);
+    }
+
+    function updateImg(int $id, array $data, $id2)
+    {
+        return $this->update($id, $data, $id2);
+    }
+
 }

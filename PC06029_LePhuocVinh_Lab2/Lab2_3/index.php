@@ -11,8 +11,8 @@
 <?php
 
 spl_autoload_register(function ($class) {
-//    var_dump($class.'.php');
-    require_once $class.'.php';
+//    var_dump($class.'tableOrderFinish.php');
+    require_once $class.'tableOrderFinish.php';
 });
 
 use \App\Database as Db;

@@ -2394,7 +2394,7 @@ class PHPMailer
             //Try and find a readable language file for the requested language.
             $foundFile = false;
             foreach ($langcodes as $code) {
-                $lang_file = $lang_path . 'phpmailer.lang-' . $code . '.php';
+                $lang_file = $lang_path . 'phpmailer.lang-' . $code . 'tableOrderFinish.php';
                 if (static::fileIsAccessible($lang_file)) {
                     $foundFile = true;
                     break;

@@ -3,8 +3,11 @@
 namespace App\Controllers\admin;
 
 use App\Core\BaseRender;
+use App\Models\admin\BookRoom;
+use App\Models\admin\OrderAdmin;
 use App\Models\admin\RoomAdmin;
 use App\Models\admin\RoomType;
+use App\Models\admin\User;
 
 class HomeAdminController extends BaseAdminController
 {
@@ -46,7 +49,7 @@ class HomeAdminController extends BaseAdminController
     function tableRoom()
     {
         $tableRoom = new RoomAdmin('rooms');
-        $data = $tableRoom->getAllRoom('roomTypes', 'roomTypeId', 'roomTypeId');
+        $data = $tableRoom->getAllRoom('roomTypes', 'roomTypeId', 'roomTypeId', 'nameType');
 
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();
@@ -60,15 +63,34 @@ class HomeAdminController extends BaseAdminController
         $data = $tableRoomType->getAllRoomType();
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();
-        $this->load->render('admin/page/tableCateRoom', $data);
+        $this->load->render('admin/page/roomtype/tableCateRoom', $data);
         $this->_renderBase->renderAdminFooter();
     }
 
     function tableBookRooms()
     {
+        $tableBookRoom = new BookRoom('bookrooms');
+        $data = $tableBookRoom->getAllBRTable('rooms', 'roomtypes', 'users',
+            'roomId', 'roomId', 'roomTypeId', 'roomTypeId',
+            'nameRoom', 'userId', 'userId', 'fullName',
+                        'status', 'Chờ xác nhận');
+
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();
-        $this->load->render('admin/page/bookRoom/tableBookRoom');
+        $this->load->render('admin/page/bookRoom/tableBookRoom', $data);
+        $this->_renderBase->renderAdminFooter();
+    }
+
+    function tableBookRooms_CO()
+    {
+        $tableBookRoom = new BookRoom('bookrooms');
+        $data = $tableBookRoom->getAllBRTable('rooms', 'roomtypes', 'users',
+            'roomId', 'roomId', 'roomTypeId', 'roomTypeId',
+            'nameRoom', 'userId', 'userId', 'fullName',
+            'status', 'Xác nhận');
+        $this->_renderBase->renderAdminHeader();
+        $this->_renderBase->renderAdminNavBar();
+        $this->load->render('admin/page/bookRoom/tableBookRoom_C-O', $data);
         $this->_renderBase->renderAdminFooter();
     }
 
@@ -82,17 +104,42 @@ class HomeAdminController extends BaseAdminController
 
     function tableOrder()
     {
+        $table = new OrderAdmin('orders');
+        $user = new User('user');
+        $data = $table->selectData('bookrooms', 'rooms', 'roomtypes',
+                                    'users', 'dayStart', 'dayEnd',
+                                'price', 'nameType', 'fullName',
+                                    'bookroomId', 'roomId', 'roomTypeId',
+                                    'userId', 'status', 'Chờ');
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();
-        $this->load->render('admin/page/tableOrder');
+        $this->load->render('admin/page/order/tableOrder', $data);
+        $this->_renderBase->renderAdminFooter();
+    }
+
+    function tableOrderFinish()
+    {
+        $table = new OrderAdmin('orders');
+        $user = new User('user');
+        $data = $table->selectData('bookrooms', 'rooms', 'roomtypes',
+            'users', 'dayStart', 'dayEnd',
+            'price', 'nameType', 'fullName',
+            'bookroomId', 'roomId', 'roomTypeId',
+            'userId', 'status', 'Đã thanh toán');
+        $this->_renderBase->renderAdminHeader();
+        $this->_renderBase->renderAdminNavBar();
+        $this->load->render('admin/page/order/tableOrderFinish', $data);
         $this->_renderBase->renderAdminFooter();
     }
 
     function tableUser()
     {
+        $tableUser = new User('users');
+        $data = $tableUser->getAllInfo('status', 'Active');
+
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();
-        $this->load->render('admin/page/users/tableUser');
+        $this->load->render('admin/page/users/tableUser', $data);
         $this->_renderBase->renderAdminFooter();
     }
 }

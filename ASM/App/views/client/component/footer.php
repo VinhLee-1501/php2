@@ -6,7 +6,7 @@
                     <div class="ft-about">
                         <div class="logo">
                             <a href="#">
-                                <img src="../../../../client/img/footer-logo.png" alt="">
+                                <img src="../../../../public/assets/client/img/footer-logo.png" alt="">
                             </a>
                         </div>
                         <p>Chúng tôi truyền cảm hứng và tiếp cận hàng triệu khách du lịch trên 90 trang web địa
@@ -34,8 +34,8 @@
                     <div class="ft-newslatter">
                         <h6>Mới nhất</h6>
                         <p>Nhận thông tin cập nhật và ưu đãi mới nhất</p>
-                        <form action="#" class="fn-form">
-                            <input type="text" placeholder="Email">
+                        <form action="<?=ROOT_URL?>?url=UserClientController/marketingEmail" method="post" class="fn-form">
+                            <input type="text" placeholder="Email" name="email">
                             <button type="submit"><i class="fa fa-send"></i></button>
                         </form>
                     </div>

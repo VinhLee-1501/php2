@@ -19,63 +19,97 @@
 </head>
 <body>
 <div id="app">
-<div id="sidebar" class='active'>
-    <div class="sidebar-wrapper active">
-        <div class="sidebar-header">
-            <img src="../../../../public/assets/admin/images/logo.svg" alt="" srcset="">
-        </div>
-        <div class="sidebar-menu">
-            <ul class="menu">
-                <li class='sidebar-title'>Main Menu</li>
+    <div id="sidebar" class='active'>
+        <div class="sidebar-wrapper active">
+            <div class="sidebar-header">
+                <img src="../../../../public/assets/admin/images/logo.svg" alt="" srcset="">
+            </div>
+            <div class="sidebar-menu">
+                <ul class="menu">
+                    <li class='sidebar-title'>Main Menu</li>
 
-                <li class="sidebar-item  ">
-                    <a href="<?=ROOT_URL?>?url=HomeAdminController/home" class='sidebar-link'>
-                        <i data-feather="home" width="20"></i>
-                        <span>Lượng check-in</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  ">
-                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableBookRooms" class='sidebar-link'>
-                        <i data-feather="file-text" width="20"></i>
-                        <span>Đặt phòng</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  ">
-                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableRoom" class='sidebar-link'>
-                        <i data-feather="file-text" width="20"></i>
-                        <span>Phòng</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  ">
-                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableRoomType" class='sidebar-link'>
-                        <i data-feather="file-text" width="20"></i>
-                        <span>Loại phòng</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  ">
-                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableOrder" class='sidebar-link'>
-                        <i data-feather="file-plus" width="20"></i>
-                        <span>Hóa đơn</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  ">
-                    <a href="<?=ROOT_URL?>?url=HomeAdminController/tableUser" class='sidebar-link'>
-                        <i data-feather="file-plus" width="20"></i>
-                        <span>Khách hàng</span>
-                    </a>
-                </li>
+                    <li class="sidebar-item  ">
+                        <a href="<?= ROOT_URL ?>?url=HomeAdminController/home" class='sidebar-link'>
+                            <i data-feather="home" width="20"></i>
+                            <span>Lượng check-in</span>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a class='sidebar-link  dropdown-toggle' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i data-feather="file-text" width="20"></i>
+                            <span>Đặt phòng</span>
+                        </a>
 
-            </ul>
+                        <ul class="dropdown-menu">
+                            <li class="sidebar-item  ">
+                                <a href="<?= ROOT_URL ?>?url=HomeAdminController/tableBookRooms" class='sidebar-link'>
+                                    <i data-feather="file-text" width="20"></i>
+                                    <span>Check-In</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item  ">
+                                <a href="<?= ROOT_URL ?>?url=HomeAdminController/tableBookRooms_CO"
+                                   class='sidebar-link'>
+                                    <i data-feather="file-text" width="20"></i>
+                                    <span>Check-Out</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="sidebar-item  ">
+                        <a href="<?= ROOT_URL ?>?url=HomeAdminController/tableRoom" class='sidebar-link'>
+                            <i data-feather="file-text" width="20"></i>
+                            <span>Phòng</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item  ">
+                        <a href="<?= ROOT_URL ?>?url=HomeAdminController/tableRoomType" class='sidebar-link'>
+                            <i data-feather="file-text" width="20"></i>
+                            <span>Loại phòng</span>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class='sidebar-link  dropdown-toggle' href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i data-feather="file-text" width="20"></i>
+                            <span>Hóa đơn</span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li class="sidebar-item  ">
+                                <a href="<?= ROOT_URL ?>?url=HomeAdminController/tableOrder" class='sidebar-link'>
+                                    <i data-feather="file-plus" width="20"></i>
+                                    <span>Chờ xác nhận</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item  ">
+                                <a href="<?= ROOT_URL ?>?url=HomeAdminController/tableOrderFinish" class='sidebar-link'>
+                                    <i data-feather="file-plus" width="20"></i>
+                                    <span>Đã thanh toán</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="sidebar-item  ">
+                        <a href="<?= ROOT_URL ?>?url=HomeAdminController/tableUser" class='sidebar-link'>
+                            <i data-feather="file-plus" width="20"></i>
+                            <span>Khách hàng</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
         </div>
-        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>
-</div>
 
-<script>
-    $(document).ready(function () {
-        var url = window.location.href;
-        $('.sidebar-link').filter(function () {
-            return this.href == url;
-        }).parent().addClass('active');
-    });
-</script>
+    <script>
+        $(document).ready(function () {
+            var url = window.location.href;
+            $('.sidebar-link').filter(function () {
+                return this.href == url;
+            }).parent().addClass('active');
+        });
+    </script>

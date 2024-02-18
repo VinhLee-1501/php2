@@ -23,7 +23,7 @@ interface CrudInterface{
     public function create(array $data);
 
 
-    public function update(int $id, array $data);
+    public function update(int $id, array $data, $id2);
 
     public function delete($condition, int $id): bool;
 }

@@ -6,6 +6,31 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
+                <?php
+                if (isset($_SESSION['success'])){
+                    echo '<div id="elementMessage" class="alert alert-success mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;">
+             
+               <span class="glyphicon glyphicon-ok"></span> <strong>Thông báo!</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['success'].'</p>
+            </div>';
+                    unset($_SESSION['success']);
+                }
+                if (isset($_SESSION['error'])){
+                    echo '<div id="elementMessage" class="alert alert-danger mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;"">
+               
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Cảnh báo</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['error'].'</p>
+            </div>';
+                    unset($_SESSION['error']);
+                }
+                //        var_dump($dataId);
+
+
+                ?>
                 <div class="contact-text">
                     <h2>Contact Info</h2>
                     <p>Chăm sóc khách hàng luôn được đặc lên hàng đầu khi khách hàng đến với Sona</p>
@@ -31,11 +56,26 @@
                     </table>
                 </div>
             </div>
+
+            <script>
+                setTimeout(function () {
+                    var element = document.getElementById("elementMessage");
+                    var opacity = 1; // bắt đầu với opacity là 1
+                    var timer = setInterval(function () {
+                        if (opacity <= 0.1){
+                            clearInterval(timer);
+                            element.style.display = 'none';
+                        }
+                        element.style.opacity = opacity;
+                        opacity -= opacity * 0.1;
+                    }, 50);
+                }, 3000);
+            </script>
             <div class="col-lg-7 offset-lg-1">
-                <form action="<?=ROOT_URL?>?url=UserClientController/sendComment" class="contact-form" method="post">
+                <form action="<?=ROOT_URL?>?url=UserClientController/sendTheConcact" class="contact-form" method="post">
                     <div class="row">
                         <div class="col-lg-6">
-                            <input type="text" placeholder="Tên" name="fullName">
+                            <input type="text" placeholder="Tiêu đề" name="title">
                         </div>
                         <div class="col-lg-6">
                             <input type="email" placeholder="Email" name="email">

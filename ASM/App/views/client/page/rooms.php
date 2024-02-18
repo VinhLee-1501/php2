@@ -1,4 +1,3 @@
-
 <!-- Header Section Begin -->
 <!-- Header End -->
 
@@ -19,167 +18,59 @@
     </div>
 </div>
 <!-- Breadcrumb Section End -->
+<?php
+if (isset($_SESSION['success'])) {
+    echo '<div id="elementMessage" class="alert alert-success mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;">
+             
+               <span class="glyphicon glyphicon-ok"></span> <strong>Thông báo!</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    ' . $_SESSION['success'] . '</p>
+            </div>';
+    unset($_SESSION['success']);
+}
+if (isset($_SESSION['error'])) {
+    echo '<div id="elementMessage" class="alert alert-danger mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;"">
+               
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Cảnh báo</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    ' . $_SESSION['error'] . '</p>
+            </div>';
+    unset($_SESSION['error']);
+}
+//        var_dump($dataId);
 
+
+?>
 <!-- Rooms Section Begin -->
 <section class="rooms-section spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="room-item">
-                    <img src="../../../public/assets/client/img/room/room-1.jpg" alt="">
-                    <div class="ri-text">
-                        <h4>Phòng Cao cấp ( King bed )</h4>
-                        <h3>3.000.000<span>/Một đêm</span></h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="r-o">Số lượng:</td>
-                                <td>Số người tối đa 5</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Giường:</td>
-                                <td>Cỡ lớn (King bed)</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Dịch vụ:</td>
-                                <td>Wifi, Tivi, Phòng tắm,...</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
+            <?php
+            foreach ($data as $value):
+                if (strpos($value['roomId'], ',') !== false) {
+                    $roomIds = explode(',', $value['roomId']);
+                    $strRoomId = implode(',', $roomIds);
+                } else {
+                    $strRoomId = ($value['roomId']);
+                }
+
+                ?>
+                <div class="col-lg-4 col-md-6">
+                    <div class="room-item">
+                        <img src="../../../../public/assets/client/img/room/<?= $value['img'] ?>" alt="" class="h-3">
+                        <div class="ri-text">
+                            <h4><?= $value['nameType'] ?></h4>
+                            <h3><?= number_format($value['price']) ?><span>/Một đêm</span></h3>
+                            <a href="<?=ROOT_URL?>?url=HomeClientController/roomDetailPage/<?= $strRoomId ?>"
+                               class="primary-btn">More Details</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="room-item">
-                    <img src="../../../public/assets/client/img/room/room-2.jpg" alt="">
-                    <div class="ri-text">
-                        <h4>Phòng Deluxe</h4>
-                        <h3>3.500.000<span>/Một đêm</span></h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="r-o">Số lượng:</td>
-                                <td>Số người tối đa 5</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Giường:</td>
-                                <td>Cỡ lớn (King bed)</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Dịch vụ:</td>
-                                <td>Wifi, Tivi, Phòng tắm,...</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="room-item">
-                    <img src="../../../public/assets/client/img/room/room-3.jpg" alt="">
-                    <div class="ri-text">
-                        <h4>Phòng đôi</h4>
-                        <h3>1.700.000<span>/Một đêm</span></h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="r-o">Số lượng:</td>
-                                <td>Số người tối đa 5</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Giường:</td>
-                                <td>Cỡ lớn (King bed)</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Dịch vụ:</td>
-                                <td>Wifi, Tivi, Phòng tắm,...</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="room-item">
-                    <img src="../../../public/assets/client/img/room/room-4.jpg" alt="">
-                    <div class="ri-text">
-                        <h4>Phòng cao cấp</h4>
-                        <h3>6.000.000<span>/Một đêm</span></h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="r-o">Số lượng:</td>
-                                <td>Số người tối đa 5</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Giường:</td>
-                                <td>Cỡ lớn (King bed)</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Dịch vụ:</td>
-                                <td>Wifi, Tivi, Phòng tắm,...</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="room-item">
-                    <img src="../../../public/assets/client/img/room/room-5.jpg" alt="">
-                    <div class="ri-text">
-                        <h4>Phòng Có Tầm Nhìn</h4>
-                        <h3>5.500.000<span>/Một đêm</span></h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="r-o">Số lượng:</td>
-                                <td>Số người tối đa 5</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Giường:</td>
-                                <td>Cỡ lớn (King bed)</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Dịch vụ:</td>
-                                <td>Wifi, Tivi, Phòng tắm,...</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="room-item">
-                    <img src="../../../public/assets/client/img/room/room-6.jpg" alt="">
-                    <div class="ri-text">
-                        <h4>Phòng nhỏ</h4>
-                        <h3>1.200.000<span>/Một đêm</span></h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td class="r-o">Số lượng:</td>
-                                <td>Số người tối đa 5</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Giường:</td>
-                                <td>Cỡ lớn (King bed)</td>
-                            </tr>
-                            <tr>
-                                <td class="r-o">Dịch vụ:</td>
-                                <td>Wifi, Tivi, Phòng tắm,...</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="ROOT_URL?url=HomeClientController/roomDetailPage" class="primary-btn">More Details</a>
-                    </div>
-                </div>
-            </div>
+            <?php
+            endforeach;
+            ?>
             <div class="col-lg-12">
                 <div class="room-pagination">
                     <a href="#">1</a>
@@ -191,9 +82,17 @@
     </div>
 </section>
 <!-- Rooms Section End -->
-
-<!-- Footer Section Begin -->
-
-<!-- Search model end -->
-
-<!-- Js Plugins -->
+<script>
+    setTimeout(function () {
+        var element = document.getElementById("elementMessage");
+        var opacity = 1; // bắt đầu với opacity là 1
+        var timer = setInterval(function () {
+            if (opacity <= 0.1) {
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = opacity;
+            opacity -= opacity * 0.1;
+        }, 50);
+    }, 3000);
+</script>

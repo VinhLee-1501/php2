@@ -9,7 +9,7 @@
                 <div class="breadcrumb-text">
                     <h2>Phòng</h2>
                     <div class="bt-option">
-                        <a href="?page=home">Trang chủ</a>
+                        <a href="<?=ROOT_URL?>?url=HomeClientController/homePage">Trang chủ</a>
                         <span>Chi tiết</span>
                     </div>
                 </div>
@@ -18,17 +18,41 @@
     </div>
 </div>
 <!-- Breadcrumb Section End -->
+<?php
+if (isset($_SESSION['success'])){
+    echo '<div id="elementMessage" class="alert alert-success mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;">
+             
+               <span class="glyphicon glyphicon-ok"></span> <strong>Thông báo!</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['success'].'</p>
+            </div>';
+    unset($_SESSION['success']);
+}
+if (isset($_SESSION['error'])){
+    echo '<div id="elementMessage" class="alert alert-danger mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;"">
+               
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Cảnh báo</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['error'].'</p>
+            </div>';
+    unset($_SESSION['error']);
+}
+//        var_dump($dataId);
 
+
+?>
 <!-- Room Details Section Begin -->
 <section class="room-details-section spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="room-details-item">
-                    <img src="../../../public/assets/client/img/room/room-details.jpg" alt="">
+                    <img src="../../../../public/assets/client/img/room/<?=$data[0]['img']?>" alt="" class="w-50">
                     <div class="rd-text">
                         <div class="rd-title">
-                            <h3>Phòng Cao cấp ( King bed )</h3>
+                            <h3><?=$data[0]['nameType']?></h3>
                             <div class="rdt-right">
                                 <div class="rating">
                                     <i class="icon_star"></i>
@@ -37,10 +61,10 @@
                                     <i class="icon_star"></i>
                                     <i class="icon_star-half_alt"></i>
                                 </div>
-                                <a href="#">Đặt ngay</a>
+                                <a href="">Đặt ngay</a>
                             </div>
                         </div>
-                        <h2>3.000.000<span>/Đêm</span></h2>
+                        <h2><?=number_format($data[0]['price'])?><span>/Đêm</span></h2>
                         <table>
                             <tbody>
                             <tr>
@@ -148,27 +172,26 @@
             <div class="col-lg-4">
                 <div class="room-booking">
                     <h3>Thông tin đặt phòng</h3>
-                    <form action="#">
+
+                    <form action="<?=ROOT_URL?>?url=RoomClientController/bookRoomPageDetail/<?=$data[0]['roomId']?>" method="post">
                         <div class="check-date">
                             <label for="date-in">Check In:</label>
-                            <input type="text" class="date-input" id="date-in">
+                            <input type="text" class="date-input" id="date-in" name="dayStart">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="check-date">
                             <label for="date-out">Check Out:</label>
-                            <input type="text" class="date-input" id="date-out">
+                            <input type="text" class="date-input" id="date-out" name="dayEnd">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="select-option">
                             <label for="guest">Khách:</label>
-                            <select id="guest">
-                                <option value="">3 người</option>
-                            </select>
+                            <input type="number"  value="1" class="form-control" id="date-out" name="qualityUser">
                         </div>
                         <div class="select-option">
-                            <label for="room">Phòng:</label>
-                            <select id="room">
-                                <option value="">1 Phòng</option>
+                            <label for="room">Room:</label>
+                            <select class="form-select" name="room" aria-label=".form-select-sm example">
+                                <option value="<?=$data[0]['roomTypeId']?>"><?=$data[0]['nameType']?></option>
                             </select>
                         </div>
                         <button type="submit">Kiểm tra</button>
@@ -179,5 +202,18 @@
     </div>
 </section>
 <!-- Room Details Section End -->
-
 <!-- Footer Section Begin -->
+<script>
+    setTimeout(function () {
+        var element = document.getElementById("elementMessage");
+        var opacity = 1; // bắt đầu với opacity là 1
+        var timer = setInterval(function () {
+            if (opacity <= 0.1){
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = opacity;
+            opacity -= opacity * 0.1;
+        }, 50);
+    }, 3000);
+</script>

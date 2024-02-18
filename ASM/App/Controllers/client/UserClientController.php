@@ -64,11 +64,16 @@ class UserClientController extends BaseClientController
         $result = $checkLogin->getInfoUser('email', $data['email']);
         var_dump($result);
 //        exit();
-        if (password_verify($data['password'], $result['password'])) {
-            $_SESSION['users'] = $result;
-            header("Location:" . ROOT_URL . "?url=HomeClientController/homePage");
-        } else {
-            $_SESSION['errorLogin'] = 'Thông tin đăng nhập không đúng';
+        if ($result['status'] === 'Active'){
+            if (password_verify($data['password'], $result['password']) && $data['userCard'] == $result['userCard']) {
+                $_SESSION['users'] = $result;
+                header("Location:" . ROOT_URL . "?url=HomeClientController/homePage");
+            } else {
+                $_SESSION['errorLogin'] = 'Thông tin đăng nhập không đúng';
+                header("Location:" . ROOT_URL . "?url=UserClientController/loginUser");
+            }
+        }else{
+            $_SESSION['errorLogin'] = 'Tài khoản của bạn đã tạm ngưng';
             header("Location:" . ROOT_URL . "?url=UserClientController/loginUser");
         }
     }
@@ -77,7 +82,11 @@ class UserClientController extends BaseClientController
     {
         $mail = new Mailer();
         if (isset($_POST['email'], $_POST['password1'], $_POST['password2'], $_POST['userCard'], $_POST['fullName'])) {
-            if ($_POST['password2'] != $_POST['password1']) {
+            $user = new User('users');
+            if ($user->emailExists($_POST['email'])) {
+                $_SESSION['errorRegister'] = 'Email đã tồn tại';
+                header("Location:" . ROOT_URL . "?url=UserClientController/register");
+            } elseif ($_POST['password2'] != $_POST['password1']) {
                 $_SESSION['errorRegister'] = 'Mật khẩu nhập lại không đúng';
                 header("Location:" . ROOT_URL . "?url=UserClientController/register");
             } else {
@@ -87,7 +96,7 @@ class UserClientController extends BaseClientController
                     'password' => password_hash($_POST['password1'], PASSWORD_DEFAULT),
                     'userCard' => $_POST['userCard'],
                 ];
-                $user = new User('users');
+
                 $result = $user->registerUser($data);
                 if ($result) {
                     $_SESSION['user'] = $data;
@@ -163,20 +172,122 @@ class UserClientController extends BaseClientController
             ];
             $user = new User('users');
             $result = $user->updatePass($_SESSION['email'], $data);
-//            var_dump($result);
-//            exit();
+
             if ($result) {
 //                var_dump($result);
 //                exit();
                 $_SESSION['success'] = 'Đổi mật khẩu thành công';
                 header("Location:" . ROOT_URL . "?url=UserClientController/loginUser");
             } else {
-                $_SESSION['errorLogin'] = 'Đổii mật khẩu thất bại';
+                $_SESSION['errorLogin'] = 'Đổi mật khẩu thất bại';
                 header("Location:" . ROOT_URL . "?url=UserClientController/resetPass");
             }
         }
     }
 
 
+    // change personal information
+
+    function changeInfoPsn($userId)
+    {
+        $mail = new Mailer();
+        $update = new User('users');
+
+        $_SESSION['users'] = [
+            'userId' => $_SESSION['users']['userId'],
+            'fullName' => $_POST['fullName'],
+            'email' => $_POST['email'],
+            'userCard' => $_POST['userCard'],
+            'address' => $_POST['address'],
+            'phone' => $_POST['phone'],
+        ];
+
+        $data = $_SESSION['users'];
+        $result = $update->updateInfoPsn($userId, $data, 'userId');
+        if ($result) {
+            $_SESSION['success'] = 'Cập nhật thông tin thành công';
+            header("Location:" . ROOT_URL . "?url=HomeClientController/profile", $userId);
+            $mail->changeInfo($data['email'], $data['fullName']);
+        } else {
+            $_SESSION['error'] = 'Cập nhật thông tin thất bại';
+            header("Location:" . ROOT_URL . "?url=HomeClientController/profile", $userId);
+        }
+    }
+
+    function updateImg($userId)
+    {
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+        $old_name = $_FILES['avatar']['name'];
+        $file_extension = pathinfo($old_name, PATHINFO_EXTENSION);
+        $new_name = date('YmdHis') . '.' . $file_extension;
+//        echo $new_name;
+        if (move_uploaded_file($_FILES['avatar']['tmp_name'], 'public/uploads/' . $new_name)) {
+            $_SESSION['success'] = 'Cập nhật thông tin thành công';
+        } else {
+            $_SESSION['error'] = 'Cập nhật thông tin thất bại';
+        }
+
+        if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+
+            $_SESSION['users'] = [
+                'userId' => $_SESSION['users']['userId'],
+                'avatar' => $new_name,
+                'fullName' => $_SESSION['users']['fullName'],
+                'email' => $_SESSION['users']['email'],
+                'userCard' => $_SESSION['users']['userCard'],
+                'address' => $_SESSION['users']['address'],
+                'phone' => $_SESSION['users']['phone'],
+            ];
+            $data = $_SESSION['users'];
+            $update = new User('users');
+            $result = $update->updateImg($userId, $data, 'userId');
+            var_dump($result);
+//        exit();
+            if ($result) {
+                $_SESSION['success'] = 'Cập nhật thông tin thành công';
+                header("Location:" . ROOT_URL . "?url=HomeClientController/profile");
+            } else {
+                $_SESSION['error'] = 'Cập nhật thông tin thất bại';
+                header("Location:" . ROOT_URL . "?url=HomeClientController/profile", $userId);
+            }
+        } else {
+            $_SESSION['errorImg'] = 'Chưa có dữ liệu truyền vào';
+            header("Location:" . ROOT_URL . "?url=HomeClientController/profile", $userId);
+        }
+    }
+
+    function sendTheConcact()
+    {
+        $mail = new Mailer();
+
+        $title = $_POST["title"];
+        $content = $_POST["content"];
+        $email = $_POST["email"];
+        if ($email == '' || $title == '' || $content == ''){
+            $_SESSION['error'] = 'Xin hãy nhập đầy đủ thông tin';
+            header("Location:".ROOT_URL."?url=HomeClientController/contactPage");
+        }else{
+            $_SESSION['success'] = 'Gửi thành công. Cảm ơn bạn đã góp ý';
+            header("Location:".ROOT_URL."?url=HomeClientController/contactPage");
+            $mail->sendContact($email, $title, $content, $_SESSION['users']['fullName']);
+        }
+
+    }
+
+    function marketingEmail()
+    {
+        $mail = new Mailer();
+        if (isset($_SESSION['users'])){
+            $email = $_POST['email'];
+            $_SESSION['success'] = 'Gửi thành công';
+            $mail->marketing($email);
+//            exit();
+            header("Location:".ROOT_URL."?url=HomeClientController/homePage");
+        }else{
+            $_SESSION['error'] = 'Xin hãy nhập đầy đủ thông tin';
+            header("Location:".ROOT_URL."?url=UserClientController/loginUser");
+        }
+    }
 }
 

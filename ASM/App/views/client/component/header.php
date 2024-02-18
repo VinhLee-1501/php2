@@ -58,25 +58,14 @@
                                 $nameFromEmail = preg_replace('/@.*?$/', '', $email);
                                 $fullName = $nameFromEmail;
                             }
-                            $avatarPath = $_SESSION['users']['avatar'] ?? "../../../../public/assets/client/img/default-avatar.jpg";
+                            $avatarPath = $_SESSION['users']['avatar'] ?? "../../../../../public/uploads/user.jpg";
 
-                            if (file_exists($avatarPath)) {
-                                $avatarUrl = $avatarPath;
-                            } else {
-                                $avatarUrl = "../../../../public/assets/client/img/default-avatar.jpg";
-                            }
-
-                            if (file_exists($avatarPath)){
-                                $avatarUrl = $avatarPath;
-                            }else{
-                                $avatarUrl = ROOT_URL. '../../../../public/uploads/user.png';
-                            }
                             echo '<div class="language-option">
-                                  <img src="' . $avatarUrl . '" alt="">
+                                  <img src="../../../../../public/uploads/'.$avatarPath.'" alt="">
                                     <span>' . $fullName . ' <i class="fa fa-angle-down"></i></span>
-                                    <div class="flag-dropdown">
+                                    <div class="flag-dropdown w-auto">
                                         <ul>
-                                            <li><a href="#">Thông tin</a></li>
+                                            <li><a href="' . ROOT_URL . '?url=HomeClientController/profile">Thông tin</a></li>
                                             <li><a href="' . ROOT_URL . '?url=UserClientController/logoutUser">Đăng xuất</a></li>
                                         </ul>
                                     </div>

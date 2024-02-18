@@ -1,3 +1,17 @@
+<?php
+if (isset($_SESSION['error'])){
+    echo '<div id="elementMessage" class="alert alert-danger mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;"">
+               
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Cảnh báo</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['error'].'</p>
+            </div>';
+    unset($_SESSION['error']);
+}
+//        var_dump($dataId);
+?>
+
 <div class="col-xl-8 col-lg-8 offset-xl-2 offset-lg-1">
     <div class="booking-form">
         <h3 class="text-center">Đăng nhập</h3>
@@ -29,3 +43,18 @@
         <a href="<?= ROOT_URL ?>?url=UserClientController/forgotPass">Quên mật khẩu</a>
     </div>
 </div>
+
+<script>
+    setTimeout(function () {
+        var element = document.getElementById("elementMessage");
+        var opacity = 1; // bắt đầu với opacity là 1
+        var timer = setInterval(function () {
+            if (opacity <= 0.1){
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = opacity;
+            opacity -= opacity * 0.1;
+        }, 50);
+    }, 3000);
+</script>

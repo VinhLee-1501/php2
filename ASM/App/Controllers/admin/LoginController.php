@@ -16,7 +16,7 @@ class LoginController extends BaseAdminController
 
         $checkLogin = new LoginAdmin('users');
         $result = $checkLogin->getInfoAdmin('email', $data['email']);
-        var_dump($result['position']);
+//        var_dump($result['position']);
 //        exit();
         if (password_verify($data['password'], $result['password'])) {
             if ($result['position'] === 'Admin'){

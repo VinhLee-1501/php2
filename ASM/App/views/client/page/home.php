@@ -12,32 +12,60 @@
                     <a href="#" class="primary-btn">Khám phá ngay</a>
                 </div>
             </div>
+            <?php
+            if (isset($_SESSION['success'])){
+                echo '<div id="elementMessage" class="alert alert-success mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;">
+             
+               <span class="glyphicon glyphicon-ok"></span> <strong>Thông báo!</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['success'].'</p>
+            </div>';
+                unset($_SESSION['success']);
+            }
+            if (isset($_SESSION['error'])){
+                echo '<div id="elementMessage" class="alert alert-danger mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;"">
+               
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Cảnh báo</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['error'].'</p>
+            </div>';
+                unset($_SESSION['error']);
+            }
+            //        var_dump($dataId);
+
+
+            ?>
             <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
                 <div class="booking-form">
                     <h3>Đặt phòng</h3>
-                    <form action="#">
+                    <form action="<?=ROOT_URL?>?url=RoomClientController/bookRoom" method="post">
                         <div class="check-date">
                             <label for="date-in">Check In:</label>
-                            <input type="text" class="date-input" id="date-in">
+                            <input type="text" class="date-input" id="date-in" name="dayStart">
                             <i class="icon_calendar"></i>
                         </div>
                         <div class="check-date">
                             <label for="date-out">Check Out:</label>
-                            <input type="text" class="date-input" id="date-out">
+                            <input type="text" class="date-input" id="date-out" name="dayEnd">
                             <i class="icon_calendar"></i>
                         </div>
-                        <div class="select-option">
-                            <label for="guest">Khách:</label>
-                            <select id="guest">
-                                <option value="">2 Người</option>
-                                <option value="">3 Người</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="">Khách</label>
+                            <input type="number" class="form-control" id="date-in" value="1" name="qualityUser">
                         </div>
                         <div class="select-option">
                             <label for="room">Room:</label>
-                            <select id="room">
-                                <option value="">Phòng đơn</option>
-                                <option value="">Phòng đôi</option>
+                            <select class="form-select" name="room" aria-label=".form-select-sm example">
+                                <option value="" selected disabled>Vui lòng chọn dịch vụ</option>
+                                <option value="1">Phòng đơn</option>
+                                <option value="2">Phòng đôi</option>
+                                <option value="3">Phòng Cao cấp</option>
+                                <option value="4">Phòng nhỏ</option>
+                                <option value="5">Phòng Deluxe</option>
+                                <option value="6">Phòng Cao cấp ( King bed )</option>
+                                <option value="7">Phòng có tầm nhìn</option>
                             </select>
                         </div>
                         <button type="submit">Kiểm tra</button>
@@ -159,106 +187,38 @@
     <div class="container-fluid">
         <div class="hp-room-items">
             <div class="row">
+                <?php
+//                global $data;
+                foreach ($data as $value):
+                    $services = explode(',', $value['describtion']);
+                ?>
                 <div class="col-lg-3 col-md-6">
-                    <div class="hp-room-item set-bg" data-setbg="../../../public/assets/client/img/room/room-b1.jpg">
+                    <div class="hp-room-item set-bg" data-setbg="../../../public/assets/client/img/room/<?=$value['img']?>">
                         <div class="hr-text">
-                            <h3>Phòng đôi</h3>
-                            <h2>1.700.000<span>/Một đêm</span></h2>
+                            <h3><?=$value['nameType']?></h3>
+                            <h2><?=$value['price']?><span>/Một đêm</span></h2>
                             <table>
                                 <tbody>
-                                <tr>
-                                    <td class="r-o">Số lượng:</td>
-                                    <td>Số người tối đa 5</td>
-                                </tr>
-                                <tr>
-                                    <td class="r-o">Giường:</td>
-                                    <td>Cỡ lớn (King bed)</td>
-                                </tr>
+                                <?php
+                                foreach ($services as $service):
+                                ?>
                                 <tr>
                                     <td class="r-o">Dịch vụ:</td>
-                                    <td>Wifi, Tivi, Phòng tắm,...</td>
+                                    <td><?=$service?></td>
                                 </tr>
+                                <?php
+                                endforeach;
+                                ?>
                                 </tbody>
                             </table>
-                            <a href="?page=detail_room" class="primary-btn">Chi tiết</a>
+                            <a href="<?=ROOT_URL?>?url=HomeClientController/roomDetailPage/<?= $value['roomId'] ?>" class="primary-btn">Chi tiết</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="hp-room-item set-bg" data-setbg="../../../public/assets/client/img/room/room-b2.jpg">
-                        <div class="hr-text">
-                            <h3>Phòng Cao cấp có Giường cỡ lớn</h3>
-                            <h2>3.000.000<span>/Một đêm</span></h2>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td class="r-o">Số lượng:</td>
-                                    <td>Số người tối đa 5</td>
-                                </tr>
-                                <tr>
-                                    <td class="r-o">Giường:</td>
-                                    <td>Cỡ lớn (King bed)</td>
-                                </tr>
-                                <tr>
-                                    <td class="r-o">Dịch vụ:</td>
-                                    <td>Wifi, Tivi, Phòng tắm,...</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <a href="?page=detail_room" class="primary-btn">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="hp-room-item set-bg" data-setbg="../../../public/assets/client/img/room/room-b3.jpg">
-                        <div class="hr-text">
-                            <h3>Phòng Deluxe</h3>
-                            <h3>3.500.000<span>/Một đêm</span></h3>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td class="r-o">Số lượng:</td>
-                                    <td>Số người tối đa 5</td>
-                                </tr>
-                                <tr>
-                                    <td class="r-o">Giường:</td>
-                                    <td>Cỡ lớn (King bed)</td>
-                                </tr>
-                                <tr>
-                                    <td class="r-o">Dịch vụ:</td>
-                                    <td>Wifi, Tivi, Phòng tắm,...</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <a href="?page=detail_room" class="primary-btn">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="hp-room-item set-bg" data-setbg="../../../public/assets/client/img/room/room-b4.jpg">
-                        <div class="hr-text">
-                            <h3>Phòng gia đình</h3>
-                            <h2>4.000.000<span>/Một đêm</span></h2>
-                            <table>
-                                <tbody>
-                                <tr>
-                                    <td class="r-o">Số lượng:</td>
-                                    <td>Số người tối đa 5</td>
-                                </tr>
-                                <tr>
-                                    <td class="r-o">Giường:</td>
-                                    <td>Cỡ lớn (King bed)</td>
-                                </tr>
-                                <tr>
-                                    <td class="r-o">Dịch vụ:</td>
-                                    <td>Wifi, Tivi, Phòng tắm,...</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <a href="?page=detail_room" class="primary-btn">Chi tiết</a>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                endforeach;
+                ?>
+
             </div>
         </div>
     </div>
@@ -385,9 +345,6 @@
 <!-- Blog Section End -->
 
 <!-- Footer Section Begin -->
-<?
-require_once '../client/component/footer.php';
-?>
 <!-- Footer Section End -->
 
 <!-- Search model Begin -->
@@ -400,5 +357,18 @@ require_once '../client/component/footer.php';
     </div>
 </div>
 <!-- Search model end -->
-
+<script>
+    setTimeout(function () {
+        var element = document.getElementById("elementMessage");
+        var opacity = 1; // bắt đầu với opacity là 1
+        var timer = setInterval(function () {
+            if (opacity <= 0.1){
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = opacity;
+            opacity -= opacity * 0.1;
+        }, 50);
+    }, 3000);
+</script>
 <!-- Js Plugins -->

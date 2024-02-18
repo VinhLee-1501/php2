@@ -1,0 +1,11 @@
+RewriteEngine On
+Options -Indexes
+RewriteBase /ASM
+
+#RewriteRule ^danhsachphong/$ index.php?url=HomeClientController/roomsPage [L]
+RewriteRule "^danhsachphong$" "?url=HomeClientController/roomsPage" [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [L]
+#RewriteRule ^([^/]*)$ index.php?url=$1 [L]

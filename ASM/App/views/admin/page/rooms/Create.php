@@ -1,3 +1,29 @@
+<?php
+if (isset($_SESSION['success'])){
+    echo '<div id="elementMessage" class="alert alert-success mb-3 position-fixed top-0 end-0 mt-3" style="z-index: 9999;">
+             
+               <span class="glyphicon glyphicon-ok"></span> <strong>Thông báo!</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['success'].'</p>
+            </div>';
+    unset($_SESSION['success']);
+}
+if (isset($_SESSION['error'])){
+    echo '<div id="elementMessage" class="alert alert-danger mb-3 position-fixed top-0 end-0 mt-3 float-left" style="z-index: 9999;"">
+               
+                <span class="glyphicon glyphicon-hand-right"></span> <strong>Cảnh báo</strong>
+                <hr class="message-inner-separator">
+                <p>
+                    '.$_SESSION['error'].'</p>
+            </div>';
+    unset($_SESSION['error']);
+}
+//        var_dump($dataId);
+
+
+?>
+
 <div class="main-content container-fluid">
     <!-- // Basic multiple Column Form section start -->
     <section id="multiple-column-form">
@@ -70,3 +96,18 @@
     </section>
     <!-- // Basic multiple Column Form section end -->
 </div>
+
+<script>
+    setTimeout(function () {
+        var element = document.getElementById("elementMessage");
+        var opacity = 1; // bắt đầu với opacity là 1
+        var timer = setInterval(function () {
+            if (opacity <= 0.1){
+                clearInterval(timer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = opacity;
+            opacity -= opacity * 0.1;
+        }, 50);
+    }, 3000);
+</script>

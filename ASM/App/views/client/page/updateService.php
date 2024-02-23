@@ -8,7 +8,7 @@
             </div>
             <div class="col-lg-6 offset-lg-1">
 
-                <form action="<?= ROOT_URL ?>?url=RoomClientController/InfoBookRoom/<?=$data[0]['bookroomId']?>" class="contact-form" method="post">
+                <form action="<?= ROOT_URL ?>?url=RoomClientController/InfoBookRoom/<?=$data[0]['bookroomId']?>&id=<?= $data[0]['roomTypeId'] ?>" class="contact-form" method="post">
                     <div class="row">
                         <div class="col-lg-6">
                             <input type="date" class="date-input" id="date-in" name="dayStart"
@@ -27,7 +27,8 @@
 
                     <div class="col-lg-12">
                         <select class="" name="room" aria-label=".form-select-sm example">
-                            <option value="<?= $data[0]['nameType'] ?>"><?= $data[0]['nameType'] ?></option>
+                            <?= $data[0]['roomTypeId'] ?>
+                            <option value="<?= $data[0]['roomTypeId'] ?>"><?= $data[0]['nameType'] ?></option>
                             <option value="1">Phòng đơn</option>
                             <option value="2">Phòng đôi</option>
                             <option value="3">Phòng Cao cấp</option>

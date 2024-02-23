@@ -54,7 +54,6 @@
                     </tr>
                     </thead>
                     <?php
-
                     foreach ($data as $row):
                     ?>
                     <tbody>
@@ -63,7 +62,7 @@
                         <td><?=$row['nameType']?></td>
                         <td><?=$row['utilities']?></td>
                         <td><span class="<?php
-                            if ($row['status'] === 'Active'){
+                            if ($row['status'] === 'Hiện'){
                                 echo 'badge bg-success';
                             }else{
                                 echo 'badge bg-danger';

@@ -55,6 +55,10 @@
                             <label for="">Khách</label>
                             <input type="number" class="form-control" id="date-in" value="1" name="qualityUser">
                         </div>
+                        <div class="form-group">
+                            <label for="">Phòng</label>
+                            <input type="number" class="form-control" id="date-in" value="1" name="qualityRooms">
+                        </div>
                         <div class="select-option">
                             <label for="room">Room:</label>
                             <select class="form-select" name="room" aria-label=".form-select-sm example">
@@ -196,7 +200,7 @@
                     <div class="hp-room-item set-bg" data-setbg="../../../public/assets/client/img/room/<?=$value['img']?>">
                         <div class="hr-text">
                             <h3><?=$value['nameType']?></h3>
-                            <h2><?=$value['price']?><span>/Một đêm</span></h2>
+                            <h2><?=number_format($value['price'])?><span>/Một đêm</span></h2>
                             <table>
                                 <tbody>
                                 <?php

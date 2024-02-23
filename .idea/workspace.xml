@@ -5,89 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7771c8e-b1cc-430d-a9d0-56ba1d64198a" name="Changes" comment="N08 - ASM2">
-      <change afterPath="$PROJECT_DIR$/ASM/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/BookRoomAdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/OrderAdminController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/RoomTypeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Controllers/client/RoomClientController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Models/admin/BookRoom.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Models/admin/OrderAdmin.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/Models/admin/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/bookRoom/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/bookRoom/tableBookRoom_C-O.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/bookRoom/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/order/tableOrder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/order/tableOrderFinish.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/roomtype/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/roomtype/tableCateRoom.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/roomtype/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/users/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/client/page/profile.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/client/page/service.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/App/views/client/page/updateService.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/assets/admin/images/bg-header.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/assets/admin/images/bg-main.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-2-details.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-3-details.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-6-details.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-7-details.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/uploads/20240210141401.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/uploads/20240211185851.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/uploads/20240214100855.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/uploads/20240214100927.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/uploads/20240217221121.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/uploads/20240217224014.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ASM/public/uploads/user.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_30_2024_2_17_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_30_2024_2_17_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_30_2024_2_28_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_1_30_2024_2_28_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM.zip" beforeDir="false" afterPath="$PROJECT_DIR$/ASM.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/admin/BookRoomAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/BookRoomAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/admin/HomeAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/HomeAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/admin/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/admin/OrderAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/OrderAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/admin/RoomAdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/admin/RoomAdminController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/client/HomeClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/client/HomeClientController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/client/UserClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/client/UserClientController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Controllers/client/RoomClientController.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Controllers/client/RoomClientController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/Core/Render.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Core/Render.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/Helpers/PHPMailer/Mailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Helpers/PHPMailer/Mailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/Helpers/PHPMailer/src/PHPMailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Helpers/PHPMailer/src/PHPMailer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/Interfaces/CrudInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Interfaces/CrudInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Core/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Core/Route.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/Models/BaseModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/BaseModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Models/admin/BookRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/admin/BookRoom.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Models/admin/OrderAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/admin/OrderAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/Models/admin/RoomAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/admin/RoomAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/Models/admin/RoomType.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/admin/RoomType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/Models/client/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/client/RoomClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/Models/client/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/client/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/component/navBar.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/component/navBar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/Models/client/RoomClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/Models/client/RoomClient.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/component/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/bookRoom/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/bookRoom/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/bookRoom/tableBookRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/bookRoom/tableBookRoom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/Create.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/Create.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/tableRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/rooms/tableRoom.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/tableCateRoom.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/tableOrder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/users/tableUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/users/tableUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/component/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/component/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/component/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/component/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/contact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/order/tableOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/order/tableOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/order/tableOrderFinish.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/order/tableOrderFinish.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/admin/page/roomtype/tableCateRoom.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/admin/page/roomtype/tableCateRoom.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/room-details.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/room-details.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/rooms.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/rooms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/service.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/service.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/App/views/client/page/updateService.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/App/views/client/page/updateService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASM/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/admin/js/vendors.js" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/public/assets/admin/js/vendors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/assets/client/img/room/room-details.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASM/public/uploads/user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_3/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_3/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASM/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/ASM/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,6 +80,11 @@
       <path value="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/vendor/composer" />
       <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/language" />
       <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/src" />
+      <path value="$PROJECT_DIR$/ASM/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/ASM/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/ASM/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/ASM/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/ASM/vendor/phenx/php-font-lib" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -207,8 +172,29 @@
       <workItem from="1708092134120" duration="6919000" />
       <workItem from="1708132242784" duration="6053000" />
       <workItem from="1708181860261" duration="5605000" />
-      <workItem from="1708257026395" duration="3065000" />
+      <workItem from="1708257026395" duration="3256000" />
+      <workItem from="1708262198929" duration="2899000" />
+      <workItem from="1708267058804" duration="81000" />
+      <workItem from="1708268651217" duration="3408000" />
+      <workItem from="1708307966690" duration="8411000" />
+      <workItem from="1708318599218" duration="567000" />
+      <workItem from="1708327192138" duration="174000" />
+      <workItem from="1708401854118" duration="7397000" />
+      <workItem from="1708412551650" duration="1687000" />
+      <workItem from="1708431734803" duration="4235000" />
+      <workItem from="1708436025059" duration="49000" />
+      <workItem from="1708603943482" duration="14806000" />
+      <workItem from="1708650386780" duration="51000" />
     </task>
+    <task id="LOCAL-00001" summary="N08 - ASM2">
+      <option name="closed" value="true" />
+      <created>1708260119050</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708260119053</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

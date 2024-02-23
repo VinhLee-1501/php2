@@ -10,6 +10,11 @@
       <path value="$PROJECT_DIR$/PC06029_LePhuocVInh_Lab4/vendor/composer" />
       <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/language" />
       <path value="$PROJECT_DIR$/ASM/vendor/PHPMailer/src" />
+      <path value="$PROJECT_DIR$/ASM/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/ASM/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/ASM/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/ASM/vendor/phenx/php-svg-lib" />
+      <path value="$PROJECT_DIR$/ASM/vendor/phenx/php-font-lib" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

@@ -138,38 +138,65 @@ class BookRoomAdminController extends BaseAdminController
             }else{
                 $roomTypeId = $selectType->selectType('roomTypeId', $_POST['roomTypeId']);
                 var_dump($roomTypeId['roomTypeId']);
+                $selectDayEnd = $dataBook->checkDay('rooms', 'roomtypes',
+                    'roomId', 'roomTypeId', 'roomTypeId',
+                    $roomTypeId['roomTypeId'], 'dayEnd');
+                var_dump($selectDayEnd[0]['roomId']);
+                var_dump($selectDayEnd[0]['dayEnd']);
 
-                $slectId = $checkStatus->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
-                    'roomTypeId', $roomTypeId['roomTypeId'],
-                    'status', 'Trống', 'roomId');
-                var_dump($slectId['roomId']);
+                $dayStart = date('Y-m-d', strtotime($_POST['dayStart']));
+                $dayEnd = date('Y-m-d', strtotime($selectDayEnd[0]['dayEnd']));
+                $qualityRooms = $_POST['qualityRooms'];
+                if ($dayStart >= $dayEnd){
+                    if ($qualityRooms > 0 && $qualityRooms < 3){
+                        $slectId = $checkStatus->getRoomIdByRoomTypeId_2('roomtypes', 'roomTypeId',
+                            'roomTypeId', $roomTypeId['roomTypeId'], 'roomId');
+                        $data = [
+                            'dayStart' => date('Y-m-d H:i:s', strtotime($_POST['dayStart'])),
+                            'dayEnd' => date('Y-m-d H:i:s', strtotime($_POST['dayEnd'])),
+                            'qualityUser' => $_POST['qualityUser'],
+                            'qualityRooms' => $_POST['qualityRooms'],
+                            'roomId' => $slectId['roomId'],
+                            'userId' => $selectName['userId']
+                        ];
+                    }else{
+                        $_SESSION['error'] = "Hiện bên chúng tôi không cung cấp đủ số phòng";
+                        header("Location:".ROOT_URL."?url=BookRoomAdminController/store");
+                        exit();
+                    }
+                }else{
+                    $slectId = $checkStatus->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
+                        'roomTypeId', $roomTypeId['roomTypeId'],
+                        'status', 'Trống', 'roomId');
+                    var_dump($slectId['roomId']);
 //                exit();
 
 //                $roomId = $checkStatus->checkStatus('roomId', $slectId['roomId'], 'status', 'Trống', 'roomId');
 //                var_dump($roomId);
-                $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
-                $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
-                $today = date('Y-m-d H:i:s');
+                    $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
+                    $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
+                    $today = date('Y-m-d H:i:s');
 
-                if ($userDayStart < $today) {
-                    $_SESSION['error'] = "Ngày bắt đầu phải lớn hơn hiện tại";
-                    header("Location:".ROOT_URL."?url=BookRoomAdminController/store");
-                    exit();
-                }
+                    if ($userDayStart < $today) {
+                        $_SESSION['error'] = "Ngày bắt đầu phải lớn hơn hiện tại";
+                        header("Location:".ROOT_URL."?url=BookRoomAdminController/store");
+                        exit();
+                    }
 
-                if ($userDayEnd <= $userDayStart) {
-                    $_SESSION['error'] = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
-                    header("Location:".ROOT_URL."?url=BookRoomAdminController/store");
-                    exit();
+                    if ($userDayEnd <= $userDayStart) {
+                        $_SESSION['error'] = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
+                        header("Location:".ROOT_URL."?url=BookRoomAdminController/store");
+                        exit();
+                    }
+                    $data = [
+                        'dayStart' => $userDayStart,
+                        'dayEnd' => $userDayEnd,
+                        'qualityUser' => $_POST['qualityUser'],
+                        'qualityRooms' => $_POST['qualityRooms'],
+                        'roomId' => $slectId['roomId'],
+                        'userId' => $selectName['userId']
+                    ];
                 }
-                $data = [
-                    'dayStart' => $userDayStart,
-                    'dayEnd' => $userDayEnd,
-                    'qualityUser' => $_POST['qualityUser'],
-                    'roomId' => $slectId['roomId'],
-                    'userId' => $selectName['userId']
-                ];
-                var_dump($data);
 
 //        exit();
                 if ($slectId) {
@@ -219,13 +246,11 @@ class BookRoomAdminController extends BaseAdminController
         $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
         $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
 
-        // Check if user's dayStart is greater than or equal to dayStart in the database
         if ($userDayStart < $roomId[0]['dayStart']) {
             echo "Ngày bắt đầu phải lớn hơn: " . $roomId[0]['dayStart'];
             return;
         }
 
-        // Check if user's dayEnd is less than or equal to user's dayStart
         if ($userDayEnd <= $userDayStart) {
             echo "Ngày kết thúc phải lớn hơn ngày bắt đầu";
             return;

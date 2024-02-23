@@ -15,17 +15,18 @@
                         <i data-feather="bell"></i>
                     </div>
                 </a>
+
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-large">
-                    <h6 class='py-2 px-4'>Notifications</h6>
+                    <h6 class='py-2 px-4'>Thông báo</h6>
                     <ul class="list-group rounded-none">
                         <li class="list-group-item border-0 align-items-start">
                             <div class="avatar bg-success mr-3">
                                 <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
                             </div>
                             <div>
-                                <h6 class='text-bold'>New Order</h6>
+                                <h6 class='text-bold'>Mới</h6>
                                 <p class='text-xs'>
-                                    An order made by Ahmad Saugi for product Samsung Galaxy S69
+                                    <?=$nati['mess']?>
                                 </p>
                             </div>
                         </li>
@@ -43,7 +44,7 @@
                     <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
                     <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                    <a class="dropdown-item" href="<?=ROOT_URL?>?url=LoginController/logoutUser"><i data-feather="log-out"></i> Logout</a>
                 </div>
             </li>
             <li class="dropdown">
@@ -62,7 +63,7 @@
                     <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
                     <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                    <a class="dropdown-item" href="<?=ROOT_URL?>?url=LoginController/logoutUser"><i data-feather="log-out"></i> Logout</a>
                 </div>
             </li>
         </ul>

@@ -13,6 +13,11 @@ class RoomClient extends BaseModel
             $condition4, $condition5, $condition6, $condition7, $limit);
     }
 
+    function Condition($condition)
+    {
+        return $this->getWhere_2($condition);
+    }
+
 
     function selectType($condition, $id)
     {
@@ -43,15 +48,20 @@ class RoomClient extends BaseModel
         return $this->getJoicheck($table2, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6);
     }
 
+    function getRoomIdByRoomTypeId_2($table2, $condition1, $condition2, $condition3, $condition6)
+    {
+        return $this->getJoicheck_2($table2, $condition1, $condition2, $condition3, $condition6);
+    }
+
     function checkStatus($condition, $id, $condition2, $condition3, $condition4)
     {
         return $this->check($condition, $id, $condition2, $condition3, $condition4);
     }
 
-//    function checkStatus($condition, $id)
-//    {
-//        return $this->getOne($condition, $id);
-//    }
+    function checkDay($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5)
+    {
+        return $this->getJoin2Table($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5);
+    }
 
     function insertBookRoom($array)
     {
@@ -66,12 +76,12 @@ class RoomClient extends BaseModel
     function selectInfoBookRoom($table2, $table3, $table4, $condition1,
                                 $condition2, $condition3, $condition4,
                                 $condition5, $condition6, $condition7,
-                                $condition8, $condition9, $condition10)
+                                $condition8, $condition9, $condition10, $condition11)
     {
         return $this->getJoin3Tbale($table2, $table3, $table4, $condition1,
                                 $condition2, $condition3, $condition4,
                                 $condition5, $condition6, $condition7,
-                                $condition8, $condition9, $condition10);
+                                $condition8, $condition9, $condition10, $condition11);
     }
 
     function checkRoomId($table2, $condition1, $condition2, $condition3)
@@ -83,5 +93,6 @@ class RoomClient extends BaseModel
     {
         return $this->delete($condition, $id);
     }
+
 
 }

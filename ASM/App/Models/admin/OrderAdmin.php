@@ -40,4 +40,5 @@ class OrderAdmin extends BaseModel
     {
         return $this->delete($condition, $id);
     }
+
 }

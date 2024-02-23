@@ -188,6 +188,10 @@ if (isset($_SESSION['error'])){
                             <label for="guest">Khách:</label>
                             <input type="number"  value="1" class="form-control" id="date-out" name="qualityUser">
                         </div>
+                        <div class="form-group">
+                            <label for="">Phòng</label>
+                            <input type="number" class="form-control" id="date-in" value="1" name="qualityRooms">
+                        </div>
                         <div class="select-option">
                             <label for="room">Room:</label>
                             <select class="form-select" name="room" aria-label=".form-select-sm example">

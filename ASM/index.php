@@ -9,6 +9,7 @@ define ("ROOT_URL", "http://localhost:8000/");
 use App\Core\Route;
 $route = new Route();
 use App\Helpers\PHPMailer\Mailer;
+//use Dompdf\Dompdf;
 new Mailer();
 //use App\Models\User;
 //$user = new User();

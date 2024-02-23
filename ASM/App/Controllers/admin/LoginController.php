@@ -31,4 +31,11 @@ class LoginController extends BaseAdminController
             header("Location:" . ROOT_URL . "?url=HomeAdminController/loginAdmin");
         }
     }
+
+    function logoutUser()
+    {
+        session_unset();
+        session_destroy();
+        header("Location:" . ROOT_URL . "?url=HomeAdminController/home");
+    }
 }

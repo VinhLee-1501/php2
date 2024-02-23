@@ -25,7 +25,6 @@ class Route
 //        var_dump($this->url);
 
         // filter_var trong php là gì?
-
         if ($this->url != null) {
             $this->url = rtrim($this->url, '/');
             $this->url = explode('/', filter_var($this->url, FILTER_SANITIZE_URL));

@@ -6,12 +6,16 @@
       <sourceFolder url="file://$MODULE_DIR$/ASM/./App" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/." isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/." isTestSource="false" packagePrefix="App\" />
-      <sourceFolder url="file://$MODULE_DIR$/ASM/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/ASM/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_4/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/PC06029_LePhuocVinh_Lab2/Lab2_6/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/ASM/App/Core/PHPMailer/language" />
       <excludeFolder url="file://$MODULE_DIR$/ASM/App/Core/PHPMailer/src" />
+      <excludeFolder url="file://$MODULE_DIR$/ASM/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/ASM/vendor/masterminds/html5" />
+      <excludeFolder url="file://$MODULE_DIR$/ASM/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/ASM/vendor/phenx/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/ASM/vendor/sabberworm/php-css-parser" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

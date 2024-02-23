@@ -74,7 +74,7 @@ if (isset($_SESSION['error'])){
                         <td><?=$row['nameType']?></td>
                         <td><?=$row['fullName']?></td>
                         <td><?=$numberOfNights?></td>
-                        <td><?=$totalPrice?></td>
+                        <td><?=number_format($totalPrice)?></td>
                         <td>
                             <span class="badge bg-danger"><?=$row['status']?></span>
                         </td>

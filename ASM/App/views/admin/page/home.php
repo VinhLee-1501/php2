@@ -5,6 +5,9 @@
     </div>
     <section class="section">
         <div class="row mb-4">
+            <?php
+            echo $nati['mess'];
+            ?>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">

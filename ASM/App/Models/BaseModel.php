@@ -45,7 +45,15 @@ abstract class BaseModel implements CrudInterface
         //        return [];
     }
 
-    public function getWhere($condition,  $id)
+    public function getWhere_2($condition)
+    {
+        $this->_query = "SELECT $this->table.$condition FROM $this->table";
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //        return [];
+    }
+    public function getWhere($condition, $id)
     {
         $this->_query = "SELECT * FROM $this->table  WHERE $condition = '$id'";
         $stmt = $this->_connection->PdO()->prepare($this->_query);
@@ -142,9 +150,9 @@ abstract class BaseModel implements CrudInterface
     public function getJoin3Tbale($table2, $table3, $table4, $condition1,
                                   $condition2, $condition3, $condition4,
                                   $condition5, $condition6, $condition7,
-                                  $condition8, $condition9, $condition10)
+                                  $condition8, $condition9, $condition10, $condition11)
     {
-        $this->_query = "SELECT t1.*, t4.*, t3.$condition5 FROM $this->table AS t1
+        $this->_query = "SELECT t1.*, t4.*, t3.$condition5, t3.$condition11 FROM $this->table AS t1
                          JOIN $table2 AS t2 ON t2.$condition1 = t1.$condition2
                          JOIN $table3 AS t3 ON t3.$condition3 = t2.$condition4
                          JOIN $table4 AS t4 ON t4.$condition6 = t1.$condition7
@@ -193,24 +201,49 @@ abstract class BaseModel implements CrudInterface
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-//    public function getJoin2Table($table2, $table3, $condition1, $condition2, $condition3, $condition4)
-//    {
-//        $this->_query = "SELECT t1.*, t2.*, t3.$condition1 FROM $this->table AS t1
-//                        JOIN $table2 AS t2 ON t1.$condition1 = t2.$condition2
-//                        JOIN $table3 AS t3 ON t1.$condition1 = t3.$condition3
-//                        WHERE t1.$condition1 = '$condition4'";
-//
-//        $stmt = $this->_connection->PdO()->prepare($this->_query);
-//        $stmt->execute();
-//
-//        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-//    }
+    public function getJoin2Table($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5)
+    {
+        $this->_query = "SELECT t1.$condition5, t2.* FROM $this->table AS t1
+                        JOIN $table2 AS t2 ON t1.$condition1 = t2.$condition1
+                        JOIN $table3 AS t3 ON t2.$condition2 = t3.$condition2
+                        WHERE t3.$condition3 = '$condition4'";
+
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getJoin2Table_2($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5)
+    {
+        $this->_query = "SELECT t1., t2.* FROM $this->table AS t1
+                        JOIN $table2 AS t2 ON t1.$condition1 = t2.$condition1
+                        JOIN $table3 AS t3 ON t2.$condition2 = t3.$condition2
+                        WHERE t3.$condition3 = '$condition4'";
+
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     function getJoicheck($table2, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
     {
         $this->_query = "SELECT t1.$condition6 FROM $this->table AS t1
                         JOIN $table2 AS t2 ON t2.$condition1 = t1.$condition2
                         WHERE t2.$condition1 = '$condition3' AND t1.$condition4 = '$condition5'";
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+//        return $result;
+    }
+
+    function getJoicheck_2($table2, $condition1, $condition2, $condition3, $condition6)
+    {
+        $this->_query = "SELECT t1.$condition6 FROM $this->table AS t1
+                        JOIN $table2 AS t2 ON t2.$condition1 = t1.$condition2
+                        WHERE t2.$condition1 = '$condition3'";
         $stmt = $this->_connection->PdO()->prepare($this->_query);
         $stmt->execute();
 
@@ -251,6 +284,7 @@ abstract class BaseModel implements CrudInterface
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 
     // //////////////////Insert data
     public function create(array $data)
@@ -406,4 +440,12 @@ abstract class BaseModel implements CrudInterface
         return $result[$condition4];
     }
 
+    function natification()
+    {
+        $this->_query = "SELECT * FROM $this->table ORDER BY createDay DESC LIMIT 1";
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

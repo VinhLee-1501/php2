@@ -30,9 +30,12 @@ class HomeAdminController extends BaseAdminController
             $this->load->render('admin/page/login');
             exit();
         }else {
+            $tableNa = new BookRoom('notifications');
+            global $nati;
+            $nati = $tableNa->natifi();
             $this->_renderBase->renderAdminHeader();
             $this->_renderBase->renderAdminNavBar();
-            $this->load->render('admin/page/home');
+            $this->load->render('admin/page/home', $nati);
             $this->_renderBase->renderAdminFooter();
         }
 
@@ -111,6 +114,8 @@ class HomeAdminController extends BaseAdminController
                                 'price', 'nameType', 'fullName',
                                     'bookroomId', 'roomId', 'roomTypeId',
                                     'userId', 'status', 'Chờ');
+
+
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();
         $this->load->render('admin/page/order/tableOrder', $data);

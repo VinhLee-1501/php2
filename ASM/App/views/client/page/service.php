@@ -82,6 +82,12 @@ $ava = $data['avatar'] ?? '../../../public/uploads/user.jpg';
                             </thead>
                             <?php
                             foreach ($data as $row):
+                                $dayStart = new \DateTime(date('Y-m-d H:i:s', strtotime($row['dayStart'])));
+                                $now = new \DateTime(date('Y-m-d H:i:s'));
+                                $disabled = '';
+                                if ($dayStart <= $now){
+                                    $disabled = 'disabled';
+                                }
                             ?>
                             <tbody class="customtable">
                             <tr>
@@ -93,8 +99,12 @@ $ava = $data['avatar'] ?? '../../../public/uploads/user.jpg';
                                 <td><?=$row['nameType']?></td>
                                 <td class="text-info"><?=$row['status']?></td>
                                 <td>
-                                    <a href="<?=ROOT_URL?>?url=RoomClientController/formUpdateBook/<?=$row['bookroomId']?>" class="btn btn-info">Thay đổi</a>
-                                    <a href="<?=ROOT_URL?>?url=RoomClientController/deleteInfoService/<?=$row['bookroomId']?>" class="btn btn-danger">Hủy</a>
+                                    <a href="<?=ROOT_URL?>?url=RoomClientController/formUpdateBook/<?=$row['bookroomId']?>" class="btn btn-info">
+                                        Thay đổi
+                                    </a>
+                                    <a href="<?=ROOT_URL?>?url=RoomClientController/deleteInfoService/<?=$row['bookroomId']?>" class="btn btn-danger">
+                                        Hủy
+                                    </a>
                                 </td>
                             </tr>
 
@@ -110,3 +120,4 @@ $ava = $data['avatar'] ?? '../../../public/uploads/user.jpg';
 
     </div>
 </section>
+

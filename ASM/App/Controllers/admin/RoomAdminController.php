@@ -105,9 +105,11 @@ class RoomAdminController extends BaseAdminController
             ];
 
             $tableRoom = new RoomAdmin('rooms');
+            var_dump($data);
+            exit();
             $result = $tableRoom->crateDataRoom($data);
             var_dump($result);
-//        exit();
+
             if ($result) {
                 header("Location:" . ROOT_URL . "?url=HomeAdminController/tableRoom");
             } else {

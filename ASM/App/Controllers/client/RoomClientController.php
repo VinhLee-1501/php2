@@ -28,7 +28,7 @@ class RoomClientController extends BaseClientController
             'roomId', 'roomId', 'roomTypeId',
             'roomTypeId', 'nameType', 'userId',
             'userId', $_SESSION['users']['userId'], 'bookroomId',
-            $bookroomId);
+            $bookroomId, 'roomTypeId');
 //        echo '<pre>';
 //        var_dump($data);
         $this->_renderBase->renderClientHeader();
@@ -46,47 +46,80 @@ class RoomClientController extends BaseClientController
                 $checkStatus = new RoomClient('rooms');
                 $dataBook = new RoomClient('bookrooms');
 
-//                var_dump($roomDetailId);
                 $roomTypeId = $selectType->selectType('roomTypeId', $_POST['room']);
                 var_dump($roomTypeId['roomTypeId']);
 
-                $slectId = $checkStatus->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
-                    'roomTypeId', $roomTypeId['roomTypeId'],
-                    'status', 'Trống', 'roomId');
-                var_dump($slectId['roomId']);
+                $selectDayEnd = $dataBook->checkDay('rooms', 'roomtypes',
+                    'roomId', 'roomTypeId', 'roomTypeId',
+                    $roomTypeId['roomTypeId'], 'dayEnd');
+                var_dump($selectDayEnd[0]['roomId']);
+                var_dump($selectDayEnd[0]['dayEnd']);
+//                exit();
+                $dayStart = date('Y-m-d', strtotime($_POST['dayStart']));
+                $dayEnd = date('Y-m-d', strtotime($selectDayEnd[0]['dayEnd']));
+                $qualityRooms = $_POST['qualityRooms'];
+                if ($dayStart >= $dayEnd){
+                    if ($qualityRooms >= 1 && $qualityRooms < 3){
+                        $slectId = $checkStatus->getRoomIdByRoomTypeId_2('roomtypes', 'roomTypeId',
+                            'roomTypeId', $roomTypeId['roomTypeId'], 'roomId');
+                        $data = [
+                            'dayStart' => date('Y-m-d H:i:s', strtotime($_POST['dayStart'])),
+                            'dayEnd' => date('Y-m-d H:i:s', strtotime($_POST['dayEnd'])),
+                            'qualityUser' => $_POST['qualityUser'],
+                            'qualityRooms' => $qualityRooms,
+                            'roomId' => $slectId['roomId'],
+                            'userId' => $_SESSION['users']['userId']
+                        ];
+
+                    }else{
+                        $_SESSION['error'] = "Hiện bên chúng tôi không cung cấp đủ số phòng";
+                        header("Location:".ROOT_URL."?url=HomeClientController/homePage");
+                        exit();
+                    }
+                }else{
+                    $slectId = $checkStatus->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
+                        'roomTypeId', $roomTypeId['roomTypeId'],
+                        'status', 'Trống', 'roomId');
+                    var_dump($slectId['roomId']);
+//                exit();
+                    $selectDayEnd = $dataBook->selectCondition('dayEnd', 'roomId', $slectId['roomId']);
+                    var_dump($selectDayEnd);
+                    $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
+                    $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
+                    $today = date('Y-m-d H:i:s');
+                    if ($userDayStart < $today) {
+                        $_SESSION['error'] = "Ngày bắt đầu phải lớn hơn hiện tại";
+                        header("Location:".ROOT_URL."?url=HomeClientController/homePage");
+                        exit();
+                    }
+
+                    if ($userDayEnd <= $userDayStart) {
+                        $_SESSION['error'] = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
+                        header("Location:".ROOT_URL."?url=HomeClientController/homePage");
+                        exit();
+                    }
+                    $data = [
+                        'dayStart' => $userDayStart,
+                        'dayEnd' => $userDayEnd,
+                        'qualityUser' => $_POST['qualityUser'],
+                        'qualityRooms' => $_POST['qualityRooms'],
+                        'roomId' => $slectId['roomId'],
+                        'userId' => $_SESSION['users']['userId']
+                    ];
+                }
 //                exit();
 
-//                $roomId = $checkStatus->checkStatus('roomId', $slectId['roomId'], 'status', 'Trống', 'roomId');
-//                var_dump($roomId);
-                $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
-                $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
-                $today = date('Y-m-d H:i:s');
-
-                if ($userDayStart < $today) {
-                    $_SESSION['error'] = "Ngày bắt đầu phải lớn hơn hiện tại";
-                    header("Location:".ROOT_URL."?url=HomeClientController/homePage");
-                    exit();
-                }
-
-                if ($userDayEnd <= $userDayStart) {
-                    $_SESSION['error'] = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
-                    header("Location:".ROOT_URL."?url=HomeClientController/homePage");
-                    exit();
-                }
-                $data = [
-                    'dayStart' => $userDayStart,
-                    'dayEnd' => $userDayEnd,
-                    'qualityUser' => $_POST['qualityUser'],
-                    'roomId' => $slectId['roomId'],
-                    'userId' => $_SESSION['users']['userId']
+                $data2 = [
+                    'status' => 'Đầy',
                 ];
                 var_dump($data);
+                var_dump($data2);
 
-//        exit();
+//                exit();
                 if ($slectId) {
                     $_SESSION['success'] = 'Đặt phòng thành công';
                     $dataBook->insertBookRoom($data);
-                    echo 'jds';
+                    $checkStatus->updateBookRoom($slectId['roomId'], $data2, 'roomId');
                     header("Location:".ROOT_URL."?url=HomeClientController/homePage");
                     $mail->BookRoom($_SESSION['users']['email'], $_SESSION['users']['fullName'], date('d-m-y'), $data['dayStart'], $data['dayEnd']);
                 }else{
@@ -113,53 +146,86 @@ class RoomClientController extends BaseClientController
                 $selectType = new RoomClient('roomtypes');
                 $checkStatus = new RoomClient('rooms');
                 $dataBook = new RoomClient('bookrooms');
-
-//                var_dump($roomDetailId);
+                $nati = new RoomClient('notifications');
                 $roomTypeId = $selectType->selectType('roomTypeId', $_POST['room']);
                 var_dump($roomTypeId['roomTypeId']);
 
-                $slectId = $checkStatus->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
-                                                    'roomTypeId', $roomTypeId['roomTypeId'],
-                    'status', 'Trống', 'roomId');
-                var_dump($slectId['roomId']);
+                $selectDayEnd = $dataBook->checkDay('rooms', 'roomtypes',
+                    'roomId', 'roomTypeId', 'roomTypeId',
+                    $roomTypeId['roomTypeId'], 'dayEnd');
+                var_dump($selectDayEnd[0]['roomId']);
+                var_dump($selectDayEnd[0]['dayEnd']);
+//                exit();
+                $dayStart = date('Y-m-d', strtotime($_POST['dayStart']));
+                $dayEnd = date('Y-m-d', strtotime($selectDayEnd[0]['dayEnd']));
+                $qualityRooms = $_POST['qualityRooms'];
+                if ($dayStart >= $dayEnd){
+                    if ($qualityRooms >= 1 && $qualityRooms < 3){
+                        $slectId = $checkStatus->getRoomIdByRoomTypeId_2('roomtypes', 'roomTypeId',
+                            'roomTypeId', $roomTypeId['roomTypeId'], 'roomId');
+                        $data = [
+                            'dayStart' => date('Y-m-d H:i:s', strtotime($_POST['dayStart'])),
+                            'dayEnd' => date('Y-m-d H:i:s', strtotime($_POST['dayEnd'])),
+                            'qualityUser' => $_POST['qualityUser'],
+                            'qualityRooms' => $qualityRooms,
+                            'roomId' => $slectId['roomId'],
+                            'userId' => $_SESSION['users']['userId']
+                        ];
+
+                    }else{
+                        $_SESSION['error'] = "Hiện bên chúng tôi không cung cấp đủ số phòng";
+                        header("Location:".ROOT_URL."?url=HomeClientController/homePage");
+                        exit();
+                    }
+                }else{
+                    $slectId = $checkStatus->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
+                        'roomTypeId', $roomTypeId['roomTypeId'],
+                        'status', 'Trống', 'roomId');
+                    var_dump($slectId['roomId']);
+//                exit();
+                    $selectDayEnd = $dataBook->selectCondition('dayEnd', 'roomId', $slectId['roomId']);
+                    var_dump($selectDayEnd);
+                    $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
+                    $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
+                    $today = date('Y-m-d H:i:s');
+                    if ($userDayStart < $today) {
+                        $_SESSION['error'] = "Ngày bắt đầu phải lớn hơn hiện tại";
+                        header("Location:".ROOT_URL."?url=HomeClientController/roomDetailPage/".$roomDetailId);
+                        exit();
+                    }
+
+                    if ($userDayEnd <= $userDayStart) {
+                        $_SESSION['error'] = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
+                        header("Location:".ROOT_URL."?url=HomeClientController/roomDetailPage/".$roomDetailId);
+                        exit();
+                    }
+                    $data = [
+                        'dayStart' => $userDayStart,
+                        'dayEnd' => $userDayEnd,
+                        'qualityUser' => $_POST['qualityUser'],
+                        'qualityRooms' => $_POST['qualityRooms'],
+                        'roomId' => $slectId['roomId'],
+                        'userId' => $_SESSION['users']['userId']
+                    ];
+                }
 //                exit();
 
-//                $roomId = $checkStatus->checkStatus('roomId', $slectId['roomId'], 'status', 'Trống', 'roomId');
-//                var_dump($roomId);
-                $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
-                $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
-                $today = date('Y-m-d H:i:s');
-
-                if ($userDayStart < $today) {
-                    $_SESSION['error'] = "Ngày bắt đầu phải lớn hơn hiện tại";
-                    header("Location:".ROOT_URL."?url=HomeClientController/roomDetailPage/".$roomDetailId);
-                    exit();
-                }
-
-                if ($userDayEnd <= $userDayStart) {
-                    $_SESSION['error'] = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
-                    header("Location:".ROOT_URL."?url=HomeClientController/roomDetailPage/".$roomDetailId);
-                    exit();
-                }
-                $data = [
-                    'dayStart' => $userDayStart,
-                    'dayEnd' => $userDayEnd,
-                    'qualityUser' => $_POST['qualityUser'],
-                    'roomId' => $slectId['roomId'],
-                    'userId' => $_SESSION['users']['userId']
+                $data2 = [
+                    'status' => 'Đầy',
                 ];
                 var_dump($data);
+                var_dump($data2);
 
-//        exit();
+//                exit();
                 if ($slectId) {
                     $_SESSION['success'] = 'Đặt phòng thành công';
                     $dataBook->insertBookRoom($data);
-                    $bookDay = date('Y-m-d H:m:s');
-                    header("Location:".ROOT_URL."?url=HomeClientController/roomsPage");
-                    $mail->BookRoom($_SESSION['users']['email'], $_SESSION['users']['fullName'] , $data['dayStart'], $data['dayEnd'], $bookDay);
+                    $checkStatus->updateBookRoom($slectId['roomId'], $data2, 'roomId');
+                    header("Location:".ROOT_URL."?url=HomeClientController/homePage");
+                    $mail->BookRoom($_SESSION['users']['email'], $_SESSION['users']['fullName'] , date('d-m-y'), $data['dayStart'], $data['dayEnd']);
                 }else{
                     $_SESSION['error'] = 'Không có phòng trống loại này. Hãy chọn phòng khác';
-                    header("Location:".ROOT_URL."?url=HomeClientController/roomsPage");
+                    header("Location:".ROOT_URL."?url=HomeClientController/roomDetailPage/".$roomDetailId);
                 }
             }else{
                 $_SESSION['error'] = 'Xin cập nhật đầy đủ thông tin';
@@ -174,37 +240,55 @@ class RoomClientController extends BaseClientController
 
     function InfoBookRoom($bookroomId)
     {
+        $roomTypeId = $_GET['id'];
         $mail = new Mailer();
         $selectRTId = new RoomClient('roomtypes');
         $checkRooms = new RoomClient('rooms');
         $updateBookRoom = new RoomClient('bookrooms');
-
         $checkTypeRoom = $selectRTId->selectType('roomTypeId', $_POST['room']);
-//        var_dump($checkTypeRoom);
+
+        var_dump($checkTypeRoom);
+        var_dump($roomTypeId);
+//        exit();
 //        echo '<br>';
-        $roomId = $checkRooms->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
-            'roomTypeId', $checkTypeRoom['roomTypeId'],
-            'status', 'Trống', 'roomId');
-//        var_dump($roomId);
-//        $checkRoom = $updateBookRoom->checkRoomId('rooms', 'roomId', 'roomId', $roomId['roomId']);
+        if ($checkTypeRoom['roomTypeId'] === $roomTypeId){
+            $roomId = $checkRooms->getRoomIdByRoomTypeId_2('roomtypes', 'roomTypeId',
+                'roomTypeId', $checkTypeRoom['roomTypeId'],
+                'roomId');
+            var_dump('12'.$roomId['roomId']);
+            exit();
+        }else{
+            $roomId = $checkRooms->getRoomIdByRoomTypeId('roomtypes', 'roomTypeId',
+                'roomTypeId', $checkTypeRoom['roomTypeId'],
+                'status', 'Trống', 'roomId');
+            var_dump('a'.$roomId['roomId']);
+
+            $selectRoomID = $updateBookRoom->selectCondition('roomId', 'bookroomId', $bookroomId);
+            var_dump($selectRoomID);
+            $dataRoom = [
+                'status' => 'Trống'
+            ];
+            $updateIdRoom = $checkRooms->updateBookRoom($selectRoomID['roomId'], $dataRoom, 'roomId');
+            var_dump($updateIdRoom);
+//            exit();
+        }
+
         echo '<pre>';
         var_dump($bookroomId);
-//        $checkStatusRoom = $checkRooms->checkStatus('roomId', $roomId['roomId'], 'status', 'Trống', 'roomId');
-//        var_dump($checkStatusRoom);
 
         $userDayStart = date('Y-m-d H:i:s', strtotime($_POST['dayStart']));
         $userDayEnd = date('Y-m-d H:i:s', strtotime($_POST['dayEnd']));
 
-        // Check if user's dayStart is greater than or equal to dayStart in the database
         if ($userDayStart < $roomId[0]['dayStart']) {
-            echo "Ngày bắt đầu phải lớn hơn: " . $roomId[0]['dayStart'];
-            return;
+            $_SESSION['error'] = "Ngày bắt đầu phải lớn hơn hiện tại";
+            header("Location:".ROOT_URL."?url=HomeClientController/service");
+            exit();
         }
 
-        // Check if user's dayEnd is less than or equal to user's dayStart
         if ($userDayEnd <= $userDayStart) {
-            echo "Ngày kết thúc phải lớn hơn ngày bắt đầu";
-            return;
+            $_SESSION['error'] = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
+            header("Location:".ROOT_URL."?url=HomeClientController/service");
+            exit();
         }
 
         $data = [
@@ -215,11 +299,16 @@ class RoomClientController extends BaseClientController
             'status' => 'Chờ xác nhận',
             'userId' => $_SESSION['users']['userId']
         ];
+
+        $data2 = [
+            'status' => 'Đầy'
+        ];
         echo '<pre>';
         var_dump($data);
         if ($roomId){
             $_SESSION['success'] = 'Thay đổi thông tin thành công';
             $updateBookRoom->updateBookRoom($bookroomId, $data, 'bookroomId');
+            $checkRooms->updateBookRoom($roomId['roomId'], $data2, 'roomId');
             $bookDay = date('Y-m-d');
             header("Location:".ROOT_URL."?url=HomeClientController/service/".$bookroomId);
             $mail->updateBookRoom($_SESSION['users']['email'], $_SESSION['users']['fullName'], $bookDay,

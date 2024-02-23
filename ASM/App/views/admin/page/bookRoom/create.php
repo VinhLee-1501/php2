@@ -37,7 +37,7 @@
                             <form class="form" action="<?=ROOT_URL?>?url=BookRoomAdminController/createData" method="post">
                                 <div class="row">
                                     <div class="col-12 col-lg-12 row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="last-name-column">Số chứng minh</label>
                                                 <input type="number" id="last-name-column" class="form-control"
@@ -45,12 +45,20 @@
                                                        name="userCard">
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="last-name-column">Số lượng khách</label>
                                                 <input type="number" id="last-name-column" class="form-control"
                                                        placeholder="Số lượng"
                                                        name="qualityUser">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="last-name-column">Số phòng</label>
+                                                <input type="number" id="last-name-column" class="form-control"
+                                                       placeholder="Số lượng"
+                                                       name="qualityRooms">
                                             </div>
                                         </div>
                                     </div>
@@ -86,15 +94,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="country-floating">Trạng thái</label>
-                                                <select class="form-select" name="describe" aria-label=".form-select-sm example">
-                                                    <option value="Active">Trống</option>
-                                                    <option value="Inactive">Đầy</option>
-                                                </select>
-                                            </div>
-                                        </div>
+
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary mr-1 mb-1" name="createRoom">Thêm</button>

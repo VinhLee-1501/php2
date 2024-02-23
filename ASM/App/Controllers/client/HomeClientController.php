@@ -102,7 +102,7 @@ class HomeClientController extends BaseClientController
                                         'roomId', 'roomId', 'roomTypeId',
                                         'roomTypeId', 'nameType', 'userId',
                                         'userId', $_SESSION['users']['userId'], 'status',
-                                        'Chờ xác nhận');
+                                        'Chờ xác nhận', 'roomTypeId');
        }
 
         $this->_renderBase->renderClientHeader();

@@ -142,7 +142,7 @@ class Mailer
         }
     }
 
-    public function BookRoom($addressMail, $fullName, $checkIn, $checkOut, $bookDay)
+    public function BookRoom($addressMail, $fullName, $bookDay, $checkIn, $checkOut)
     {
         $mail = new PHPMailer(true);
 
@@ -172,8 +172,8 @@ class Mailer
                                             <p>Kính chào quý khách, '.$fullName.'</p>
                                             <p>Quý khách đã đặt phòng thành công. Hãy kiểm tra lại thông tin</p>
                                             <p>Thời gian đặt phòng: '.date('Y-m-d', strtotime($bookDay)).'</p>
-                                            <p>Thời gian checkOut: '.date('Y-m-d', strtotime($checkIn)).'</p>
-                                            <p>Thời gian checkIn: '.date('Y-m-d', strtotime($checkOut)).'</p>
+                                            <p>Thời gian checkIn: '.date('Y-m-d', strtotime($checkIn)).'</p>
+                                            <p>Thời gian checkOut: '.date('Y-m-d', strtotime($checkOut)).'</p>
                                             <br>
                                             <p>Nếu có sai sót xin hãy liên hiện đến với địa chỉ '.$mail->Username.' để được hỗ trợ</p>
                                             <p>Trân trọng,</p>

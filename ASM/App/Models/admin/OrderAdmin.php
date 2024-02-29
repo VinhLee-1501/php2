@@ -41,4 +41,13 @@ class OrderAdmin extends BaseModel
         return $this->delete($condition, $id);
     }
 
+    function totalPrice($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
+    {
+        return $this->total($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6);
+    }
+
+    function totalToday($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
+    {
+        return $this->totalMonth($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6);
+    }
 }

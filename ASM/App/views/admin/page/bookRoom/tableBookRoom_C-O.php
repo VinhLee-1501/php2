@@ -61,6 +61,7 @@ if (isset($_SESSION['error'])){
                             <th>Ngày đến</th>
                             <th>Ngày đi</th>
                             <th>Số lượng khách</th>
+                            <th>Tiền cọc trước</th>
                             <th>Khách hàng</th>
                             <th>Trạng thái</th>
                             <th>Thao tác</th>
@@ -78,6 +79,7 @@ if (isset($_SESSION['error'])){
                                 <td><?=date('Y-m-d', strtotime($value['dayStart']))?></td>
                                 <td><?=date('Y-m-d', strtotime($value['dayEnd']))?></td>
                                 <td><?=$value['qualityUser']?></td>
+                                <td><?=number_format($value['payment'])?></td>
                                 <td><?=$value['fullName']?></td>
                                 <td>
                                 <span class="<?php

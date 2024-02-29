@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="../../../../public/assets/client/css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="../../../../public/assets/client/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="../../../../public/assets/client/css/style.css" type="text/css">
-    <link rel="stylesheet" href="path/to/your/css.css">
+<!--    <link rel="stylesheet" href="path/to/your/css.css">-->
 </head>
 
 <body>
@@ -48,17 +48,22 @@
                             <a href="#"><i class="fa fa-instagram"></i></a>
                         </div>
                         <?php
-                        if (!isset($_SESSION['users'])) {
+                        $table = new \App\Models\client\User('users');
+                        $userId = $_COOKIE['userId'] ?? null;
+                        $result = $table->getInfoUser('userId', $userId);
+                        if (!isset($_COOKIE['userId'])) {
                             echo ' <a href="' . ROOT_URL . '?url=UserClientController/loginUser" class="bk-btn">Đăng nhập</a>';
                         } else {
-                            if (isset($_SESSION['users']['fullName']) && !empty($_SESSION['users']['fullName'])) {
-                                $fullName = $_SESSION['users']['fullName'];
+                            if (isset($result['fullName']) && !empty($result['fullName'])) {
+                                $fullName = $result['fullName'];
                             } else {
-                                $email = $_SESSION['users']['email'];
+                                $userId = $_COOKIE['userId'];
+                                $result = $table->getInfoUser('userId', $userId);
+                                $email = $result['email'];
                                 $nameFromEmail = preg_replace('/@.*?$/', '', $email);
                                 $fullName = $nameFromEmail;
                             }
-                            $avatarPath = $_SESSION['users']['avatar'] ?? "../../../../../public/uploads/user.jpg";
+                            $avatarPath = $result['avatar'] ?? "../../../../../public/uploads/user.jpg";
 
                             echo '<div class="language-option">
                                   <img src="../../../../../public/uploads/'.$avatarPath.'" alt="">
@@ -111,8 +116,11 @@
                                 <li><a href="<?= ROOT_URL ?>?url=HomeClientController/contactPage">Liên hệ</a></li>
                             </ul>
                         </nav>
-                        <div class="nav-right search-switch">
-                            <i class="icon_search"></i>
+                        <div class="nav-right">
+<!--                            <i class="icon_search"></i>-->
+<!--                            <form action="--><?php //=ROOT_URL?><!--?url=HomeClientController/homePage" method="get">-->
+<!--                                <input name="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                            </form>-->
                         </div>
                     </div>
                 </div>

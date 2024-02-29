@@ -86,13 +86,17 @@
                                                     <option value="7">Phòng có tầm nhìn</option>
                                                 </select>
                                             </div>
+
                                         </div>
-<!--                                        <div class="col-md-6 col-12">-->
-<!--                                            <div class="form-group">-->
-<!--                                                <label for="country-floating">Số lượng</label>-->
-<!---->
-<!--                                            </div>-->
-<!--                                        </div>-->
+                                        <div class="col-md-6 col-12">
+                                            <div class="form-group">
+                                                <label for="last-name-column">Số phòng</label>
+                                                <input type="number" id="last-name-column" class="form-control"
+                                                       placeholder="Số lượng"
+                                                       name="qualityRooms" value="<?=$data[0]['qualityRooms']?>">
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="col-12 d-flex justify-content-end">
                                         <button type="submit" class="btn btn-primary mr-1 mb-1" name="createRoom">Sửa</button>

@@ -15,9 +15,11 @@
                         <i data-feather="bell"></i>
                     </div>
                 </a>
-
+                <script>
+                    var data = <?php echo json_encode($data); ?>;
+                </script>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-large">
-                    <h6 class='py-2 px-4'>Thông báo</h6>
+                    <h6 class='py-2 px-4'>Thông báo<span class="badge" id="notificationCount"></span></h6>
                     <ul class="list-group rounded-none">
                         <li class="list-group-item border-0 align-items-start">
                             <div class="avatar bg-success mr-3">
@@ -25,9 +27,11 @@
                             </div>
                             <div>
                                 <h6 class='text-bold'>Mới</h6>
-                                <p class='text-xs'>
-                                    <?=$nati['mess']?>
-                                </p>
+                                <a class='text-xs' href="<?= ROOT_URL ?>?url=HomeAdminController/tableBookRooms/<?= $data['bookroomId'] ?>">
+                                    <?php
+                                        echo $data['mess'];
+                                    ?>
+                                </a>
                             </div>
                         </li>
                     </ul>

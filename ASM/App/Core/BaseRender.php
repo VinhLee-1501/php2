@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Controllers\client\BaseClientController;
+use App\Models\admin\BookRoom;
 
 class BaseRender extends BaseClientController
 {
@@ -16,11 +17,14 @@ class BaseRender extends BaseClientController
     }
 
     public function renderClientHeader(){
+
         $this->load->render('client/component/header');
     }
 
     public function renderAdminHeader(){
-        $this->load->render('admin/component/header');
+        $table = new BookRoom('notifications');
+        $data = $table->natifi();
+        $this->load->render('admin/component/header', $data);
     }
 
     public function renderAdminNavBar(){

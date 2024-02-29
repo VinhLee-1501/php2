@@ -67,6 +67,11 @@ class UserClientController extends BaseClientController
         if ($result['status'] === 'Active'){
             if (password_verify($data['password'], $result['password']) && $data['userCard'] == $result['userCard']) {
                 $_SESSION['users'] = $result;
+
+                $cookie_name = "userId";
+                $cookie_value = $result['userId'];
+                $cookie_expire = time() + (60 * 60);
+                setcookie($cookie_name, $cookie_value, $cookie_expire, "/");
                 header("Location:" . ROOT_URL . "?url=HomeClientController/homePage");
             } else {
                 $_SESSION['errorLogin'] = 'Thông tin đăng nhập không đúng';
@@ -116,6 +121,10 @@ class UserClientController extends BaseClientController
 
     function logoutUser()
     {
+        if (isset($_COOKIE['userId'])){
+            setcookie('userId', '', time() - 3600, '/');
+        }
+
         session_unset();
         session_destroy();
         header("Location:" . ROOT_URL . "?url=HomeClientController/homePage");

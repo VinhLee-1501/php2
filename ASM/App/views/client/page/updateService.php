@@ -8,20 +8,31 @@
             </div>
             <div class="col-lg-6 offset-lg-1">
 
-                <form action="<?= ROOT_URL ?>?url=RoomClientController/InfoBookRoom/<?=$data[0]['bookroomId']?>&id=<?= $data[0]['roomTypeId'] ?>" class="contact-form" method="post">
+                <form action="<?= ROOT_URL ?>?url=RoomClientController/InfoBookRoom/<?= $data[0]['bookroomId'] ?>&id=<?= $data[0]['roomTypeId'] ?>"
+                      class="contact-form" method="post">
                     <div class="row">
                         <div class="col-lg-6">
+                            <label class="form-label">Check-in</label>
                             <input type="date" class="date-input" id="date-in" name="dayStart"
                                    value="<?= date('Y-m-d', strtotime($data[0]['dayStart'])) ?>">
                         </div>
 
                         <div class="col-lg-6">
+                            <label class="form-label">Check-out</label>
                             <input type="date" class="date-input" id="date-in" name="dayEnd"
                                    value="<?= date('Y-m-d', strtotime($data[0]['dayEnd'])) ?>">
                         </div>
+
                         <div class="col-lg-12">
-                            <input type="number" class="date-input" id="date-in" name="qualityUser"
-                                   value="<?=$data[0]['qualityUser'] ?>">
+                            <label class="form-label">Số người</label>
+                            <input type="number" class="form-control" id="date-in" name="qualityUser"
+                                   value="<?= $data[0]['qualityUser'] ?>">
+                        </div>
+
+                        <div class="col-lg-12">
+                            <label class="form-label">Số phòng</label>
+                            <input type="number" class="form-control" id="date-in" name="qualityRooms"
+                                   value="<?= $data[0]['qualityRooms'] ?>">
                         </div>
                     </div>
 

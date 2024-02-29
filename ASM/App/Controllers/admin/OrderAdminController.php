@@ -118,7 +118,7 @@ class OrderAdminController extends BaseAdminController
                         ");
 //            var_dump($dompdf);
 //            exit();
-        $dompdf->setPaper('A4', 'landscape');
+        $dompdf->setPaper(array(0, 0, 526, 241), 'landscape');
         $dompdf->render();
 
 

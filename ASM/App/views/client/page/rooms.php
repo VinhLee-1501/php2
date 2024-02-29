@@ -49,7 +49,7 @@ if (isset($_SESSION['error'])) {
         <div class="row">
             <?php
             foreach ($data as $value):
-                if (strpos($value['roomId'], ',') !== false) {
+                if (strpos($value['roomId'], ',') !== false ) {
                     $roomIds = explode(',', $value['roomId']);
                     $strRoomId = implode(',', $roomIds);
                 } else {

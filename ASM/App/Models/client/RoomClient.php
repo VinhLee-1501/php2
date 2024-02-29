@@ -58,9 +58,9 @@ class RoomClient extends BaseModel
         return $this->check($condition, $id, $condition2, $condition3, $condition4);
     }
 
-    function checkDay($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5)
+    function checkDay($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
     {
-        return $this->getJoin2Table($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5);
+        return $this->getJoin2Table_2($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5,$condition6);
     }
 
     function insertBookRoom($array)
@@ -89,10 +89,33 @@ class RoomClient extends BaseModel
         return $this->getJoinWhere($table2, $condition1, $condition2, $condition3);
     }
 
+    function getForm($table2, $condition1, $condition2, $condition3)
+    {
+        return $this->getJoinWhere_2($table2, $condition1, $condition2, $condition3);
+    }
+
     function deleteService($condition, int $id)
     {
         return $this->delete($condition, $id);
     }
 
+    function selectDesc($condition1, $condition2)
+    {
+        return $this->descSelect($condition1, $condition2);
+    }
 
+    function dataSearch($table2, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6, $condition7, $keyword)
+    {
+        return $this->getDataSearch($table2, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6, $condition7, $keyword);
+    }
+
+    function selectNoti($table2, $condition1, $condition2, $condition3)
+    {
+        return $this->getJoinWhere_2($table2, $condition1, $condition2, $condition3);
+    }
+
+    function deleteData($condition, int $id)
+    {
+        return $this->delete($condition, $id);
+    }
 }

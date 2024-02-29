@@ -75,6 +75,8 @@ $ava = $data['avatar'] ?? '../../../public/uploads/user.jpg';
                                 <th scope="col">Check - In</th>
                                 <th scope="col">Check - Out</th>
                                 <th scope="col">Số người</th>
+                                <th scope="col">Số phòng</th>
+                                <th scope="col">Tiền cọc trước</th>
                                 <th scope="col">Lọai phòng</th>
                                 <th scope="col">Trạng thái</th>
                                 <th scope="col">Thao tác</th>
@@ -96,6 +98,8 @@ $ava = $data['avatar'] ?? '../../../public/uploads/user.jpg';
                                 <td><?=date('d-m-y', strtotime($row['dayStart']))?></td>
                                 <td><?=date('d-m-y', strtotime($row['dayEnd']))?></td>
                                 <td><?=$row['qualityUser']?></td>
+                                <td><?=$row['qualityRooms']?></td>
+                                <td><?=number_format($row['payment'])?></td>
                                 <td><?=$row['nameType']?></td>
                                 <td class="text-info"><?=$row['status']?></td>
                                 <td>

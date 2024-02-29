@@ -214,12 +214,26 @@ abstract class BaseModel implements CrudInterface
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function getJoin2Table_2($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5)
+    public function getJoin2Table_2($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
     {
-        $this->_query = "SELECT t1., t2.* FROM $this->table AS t1
+        $this->_query = "SELECT t1.$condition5, t2.* FROM $this->table AS t1
                         JOIN $table2 AS t2 ON t1.$condition1 = t2.$condition1
                         JOIN $table3 AS t3 ON t2.$condition2 = t3.$condition2
-                        WHERE t3.$condition3 = '$condition4'";
+                        WHERE t3.$condition3 = '$condition4'  ORDER BY t1.$condition5 DESC LIMIT $condition6";
+
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getJoin2Table_3($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
+    {
+        $this->_query = "SELECT t1.$condition5, t2.* FROM $this->table AS t1
+                        JOIN $table2 AS t2 ON t1.$condition1 = t2.$condition1
+                        JOIN $table3 AS t3 ON t2.$condition2 = t3.$condition2
+                        WHERE t3.$condition3 = '$condition4' AND 
+                        ORDER BY t1.$condition5 DESC LIMIT $condition6";
 
         $stmt = $this->_connection->PdO()->prepare($this->_query);
         $stmt->execute();
@@ -448,4 +462,53 @@ abstract class BaseModel implements CrudInterface
 
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    function descSelect($condition1, $condition2)
+    {
+        $this->_query = "SELECT * FROM $this->table ORDER BY $condition1 DESC LIMIT $condition2";
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    function total($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
+    {
+        $this->_query = "SELECT DATE($condition1) AS date, SUM(DATEDIFF(t2.$condition2, t2.$condition3) * t3.$condition4) AS Total
+                        FROM $this->table AS t1
+                        JOIN $table2 t2 ON t1.$condition5 = t2.$condition5
+                        JOIN $table3 t3 ON t2.$condition6 = t3.$condition6
+                        GROUP BY DATE($condition1)
+                        ";
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function totalMonth($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
+    {
+        $this->_query = "SELECT SUM(DATEDIFF(t2.$condition1, t2.$condition2) * t3.$condition3) AS Total
+                        FROM $this->table AS t1
+                        JOIN $table2 t2 ON t1.$condition4 = t2.$condition4
+                        JOIN $table3 t3 ON t2.$condition5 = t3.$condition5
+                        WHERE MONTH($condition6) = MONTH(CURRENT_DATE()) AND YEAR($condition6) = YEAR(CURRENT_DATE());
+                        ";
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function getDataSearch($table2, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6, $condition7, $keyword)
+    {
+        $this->_query = "SELECT GROUP_CONCAT(DISTINCT $this->table.$condition1), GROUP_CONCAT(DISTINCT $this->table.$condition2),
+                GROUP_CONCAT(DISTINCT $this->table.$condition3), GROUP_CONCAT(DISTINCT $this->table.$condition4), $table2.$condition5
+                FROM $this->table JOIN $table2 ON $this->table.$condition6 = $table2.$condition6
+                WHERE $table2.$condition7 LIKE '%$keyword%' GROUP BY $this->table.$condition6";
+        $stmt = $this->_connection->PdO()->prepare($this->_query);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 }

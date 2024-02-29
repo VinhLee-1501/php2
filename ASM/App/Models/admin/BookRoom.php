@@ -48,9 +48,19 @@ class BookRoom extends BaseModel
         return $this->getJoicheck($table2, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6);
     }
 
+    function getRoomIdByRoomTypeId_2($table2, $condition1, $condition2, $condition3, $condition6)
+    {
+        return $this->getJoicheck_2($table2, $condition1, $condition2, $condition3, $condition6);
+    }
+
     function natifi()
     {
         return $this->natification();
+    }
+
+    function checkDay($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6)
+    {
+        return $this->getJoin2Table_2($table2, $table3, $condition1, $condition2, $condition3, $condition4, $condition5, $condition6);
     }
 
 }

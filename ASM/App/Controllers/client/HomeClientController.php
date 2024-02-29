@@ -24,8 +24,29 @@ class HomeClientController extends BaseClientController
 
     function homePage()
     {
-        // dữ liệu ở đây lấy từ repositories hoặc model
         $table = new RoomClient('rooms');
+        $table2 = new RoomClient('vn_pay');
+        if (isset($_GET['vnp_Amount'])) {
+            $price = $_GET['vnp_Amount'] / 100;
+            $data_vnpay = [
+                "vnp_Amount" => $price,
+                "vnp_BankCode" => $_GET['vnp_BankCode'],
+                "vnp_BankTranNo" => $_GET['vnp_BankTranNo'],
+                "vnp_CardType" => $_GET['vnp_CardType'],
+                "vnp_OrderInfo" => $_GET['vnp_OrderInfo'],
+                "vnp_PayDate" => $_GET['vnp_PayDate'],
+                "vnp_ResponseCode" => $_GET['vnp_ResponseCode'],
+                "vnp_TmnCode" => $_GET['vnp_TmnCode'],
+                "vnp_TransactionNo" => $_GET['vnp_TransactionNo'],
+                "vnp_TransactionStatus" => $_GET['vnp_TransactionStatus'],
+                "vnp_TxnRef" => $_GET['vnp_TxnRef'],
+                "vnp_SecureHash" => $_GET['vnp_SecureHash'],
+            ];
+
+            $table2->insertBookRoom($data_vnpay);
+        };
+        // dữ liệu ở đây lấy từ repositories hoặc model
+
         $data = $table->getLimit('roomtypes', 'price', 'describtion',
             'roomId', 'img', 'roomTypeId', 'roomTypeId', 'nameType', 4);
         $this->_renderBase->renderClientHeader();
@@ -35,21 +56,31 @@ class HomeClientController extends BaseClientController
 
     public function roomsPage()
     {
-        $table = new RoomClient('rooms');
-        $data = $table->getInfoUnique('roomtypes', 'price', 'describtion',
-                        'roomId', 'img', 'roomTypeId', 'roomTypeId', 'nameType');
+        if (isset($_GET['keyword'])){
+            $table = new RoomClient('rooms');
+            $data = $table->dataSearch('roomtypes', 'price', 'describtion',
+                'roomId', 'img', 'nameType', 'roomTypeId', 'nameType', $_GET['keyword']);
+            $this->_renderBase->renderClientHeader();
+            $this->load->render('client/page/rooms', $data);
+            $this->_renderBase->renderClientFooter();
+        }else{
+            $table = new RoomClient('rooms');
+            $data = $table->getInfoUnique('roomtypes', 'price', 'describtion',
+                'roomId', 'img', 'roomTypeId', 'roomTypeId', 'nameType');
 //        var_dump($data);
-        $this->_renderBase->renderClientHeader();
-        $this->load->render('client/page/rooms', $data);
-        $this->_renderBase->renderClientFooter();
+            $this->_renderBase->renderClientHeader();
+            $this->load->render('client/page/rooms', $data);
+            $this->_renderBase->renderClientFooter();
+        }
+
     }
 
     function roomDetailPage($roomId)
     {
         $table = new RoomClient('rooms');
         $data = $table->getInfoUniqueWhere('roomtypes', 'price', 'describtion',
-                        'roomId', 'img', 'roomTypeId', 'roomTypeId',
-                        'nameType', $roomId);
+            'roomId', 'img', 'roomTypeId', 'roomTypeId',
+            'nameType', $roomId);
         $this->_renderBase->renderClientHeader();
         $this->load->render('client/page/room-details', $data);
         $this->_renderBase->renderClientFooter();
@@ -85,7 +116,7 @@ class HomeClientController extends BaseClientController
 
     function profile()
     {
-        if (isset($_SESSION['users'])){
+        if (isset($_SESSION['users'])) {
             $Info = new User('users');
             $data = $Info->getInfoUser('email', $_SESSION['users']['email']);
         }
@@ -96,14 +127,14 @@ class HomeClientController extends BaseClientController
 
     function service()
     {
-       if (isset($_SESSION['users'])){
-           $getInfoPsn = new RoomClient('bookrooms');
-           $data = $getInfoPsn->selectInfoBookRoom('rooms', 'roomtypes', 'users',
-                                        'roomId', 'roomId', 'roomTypeId',
-                                        'roomTypeId', 'nameType', 'userId',
-                                        'userId', $_SESSION['users']['userId'], 'status',
-                                        'Chờ xác nhận', 'roomTypeId');
-       }
+        if (isset($_SESSION['users'])) {
+            $getInfoPsn = new RoomClient('bookrooms');
+            $data = $getInfoPsn->selectInfoBookRoom('rooms', 'roomtypes', 'users',
+                'roomId', 'roomId', 'roomTypeId',
+                'roomTypeId', 'nameType', 'userId',
+                'userId', $_SESSION['users']['userId'], 'status',
+                'Chờ xác nhận', 'roomTypeId');
+        }
 
         $this->_renderBase->renderClientHeader();
         $this->load->render('client/page/service', $data);

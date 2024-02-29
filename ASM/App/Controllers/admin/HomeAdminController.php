@@ -30,12 +30,18 @@ class HomeAdminController extends BaseAdminController
             $this->load->render('admin/page/login');
             exit();
         }else {
-            $tableNa = new BookRoom('notifications');
-            global $nati;
-            $nati = $tableNa->natifi();
+            $table = new OrderAdmin('orders');
+            $data = $table->totalPrice('bookrooms', 'rooms', 'createDay',
+                'dayEnd', 'dayStart', 'price', 'bookroomId', 'roomId');
+            $data2 = $table->totalToday('bookrooms', 'rooms', 'dayEnd',
+                'dayStart', 'price', 'bookroomId', 'roomId',
+            'createDay');
+
+//            global $dataAll;
+            $dataAll = [$data, $data2];
             $this->_renderBase->renderAdminHeader();
             $this->_renderBase->renderAdminNavBar();
-            $this->load->render('admin/page/home', $nati);
+            $this->load->render('admin/page/home', ['dataAll' => $dataAll]);
             $this->_renderBase->renderAdminFooter();
         }
 
@@ -91,6 +97,7 @@ class HomeAdminController extends BaseAdminController
             'roomId', 'roomId', 'roomTypeId', 'roomTypeId',
             'nameRoom', 'userId', 'userId', 'fullName',
             'status', 'Xác nhận');
+//        var_dump($data);
         $this->_renderBase->renderAdminHeader();
         $this->_renderBase->renderAdminNavBar();
         $this->load->render('admin/page/bookRoom/tableBookRoom_C-O', $data);
